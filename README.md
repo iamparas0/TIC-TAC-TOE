@@ -13,36 +13,47 @@ To run the Tic Tac Toe game locally, follow these steps:
 1. Clone the repository:
    ```bash
    git clone https://github.com/iamparas0/TIC-TAC-TOE.git
-   
-*Navigate to the project directory:
-cd <repository>
-```npm install
-```npm start
+   ```
 
+2. Navigate to the project directory:
+   ```bash
+   cd TIC-TAC-TOE
+   ```
 
-Open your browser and visit http://localhost:3000 to play the game.
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+4. Start the development server:
+   ```bash
+   npm start
+   ```
+
+5. Open your browser and visit http://localhost:3000 to play the game.
 
 ## Technologies Used
-React
-JavaScript
-HTML
-CSS
-Game Rules
-Two players take turns marking cells in a 3x3 grid.
-The first player marks cells with "X", and the second player marks cells with "O".
-The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row wins the game.
-If all cells are filled and no player has three marks in a row, the game is a draw.
 
+- React
+- JavaScript
+- HTML
+- CSS
 
-Contributing
+## Game Rules
+
+- Two players take turns marking cells in a 3x3 grid.
+- The first player marks cells with "X", and the second player marks cells with "O".
+- The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row wins the game.
+- If all cells are filled and no player has three marks in a row, the game is a draw.
+
+## Contributing
+
 Contributions are welcome! If you find any bugs or have suggestions for improvements, please open an issue or submit a pull request.
 
-License
+## License
+
 This project is licensed under the MIT License.
 
-Contact
+## Contact
+
 For any inquiries or suggestions, feel free to reach out to pearsparas@gmail.com.
-
-Remember to replace `iamparas0` and `TIC-TAC-TOE` with your actual GitHub username and repository name, respectively, in the README file.
-
-Feel free to customize the content and add screenshots or any additional information as needed. The README serves as a documentation and guide for users and contributors to understand and use your application.
