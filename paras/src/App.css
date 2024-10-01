@@ -66,3 +66,29 @@ button:hover {
   padding: 10px;
   text-align: center;
 }
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scoreboard {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.square {
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  margin: 5px;
+}
+
+.board-row {
+  display: flex;
+}
+
+.game-info {
+  margin-top: 20px;
+}
+
