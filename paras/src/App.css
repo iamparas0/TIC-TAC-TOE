@@ -33,13 +33,15 @@ button {
   padding: 10px 20px;
   font-size: 16px;
   font-weight: bold;
-  background-color: lightblue;
+  background-color: rgb(33, 31, 161);
+  color:rgb(78, 198, 246)
   border: none;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: skyblue;
+  background-color: rgb(78, 198, 246);
+  color: rgb(33, 31, 161);
 }
 .rules {
   margin-top: 20px;
