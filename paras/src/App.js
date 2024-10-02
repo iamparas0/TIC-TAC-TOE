@@ -9,11 +9,18 @@ const App = () => {
   const [winner, setWinner] = useState(null);
 
   const handleCellClick = (index) => {
+    // Check if the cell is already filled or if there's a winner
     if (board[index] || winner) return;
+
+    // Create a new board and set the current player's mark
     const newBoard = [...board];
     newBoard[index] = currentPlayer;
     setBoard(newBoard);
+
+    // Check for a winner after the move
     checkWinner(newBoard, currentPlayer);
+
+    // Switch the current player
     setCurrentPlayer(currentPlayer === 'X' ? 'O' : 'X');
   };
 
@@ -24,12 +31,18 @@ const App = () => {
       [0, 4, 8], [2, 4, 6] // diagonals
     ];
 
+    // Check all winning combinations
     for (let combination of winningCombinations) {
       const [a, b, c] = combination;
       if (board[a] === player && board[b] === player && board[c] === player) {
         setWinner(player);
         return;
       }
+    }
+
+    // Check for a draw
+    if (!board.includes(null)) {
+      setWinner('Draw');
     }
   };
 
@@ -42,7 +55,7 @@ const App = () => {
   const renderCell = (index) => {
     const value = board[index];
     return (
-      <div className="cell" onClick={() => handleCellClick(index)}>
+      <div className="cell" onClick={() => handleCellClick(index)} key={index}>
         {value}
       </div>
     );
@@ -56,7 +69,7 @@ const App = () => {
       </div>
       {winner && (
         <div className="winner-message">
-          <p>Player {winner} wins!</p>
+          <p>{winner === 'Draw' ? "It's a draw!" : `Player ${winner} wins!`}</p>
           <button onClick={resetGame}>Restart</button>
         </div>
       )}

@@ -1,54 +1,94 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #E3F2FD;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
 .app {
   text-align: center;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 90%;
+  max-width: 400px;
 }
 
 h1 {
-  margin-top: 0;
+  font-size: 2rem;
+  color: #4A148C;
+  margin-bottom: 20px;
 }
 
 .board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-  max-width: 300px;
-  margin: 20px auto;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .cell {
+  background: #F3E5F5;
+  border: 2px solid #BA68C8;
+  border-radius: 8px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100px;
-  font-size: 36px;
+  font-size: 3rem;
   font-weight: bold;
-  background-color: lightblue;
+  color: #4A148C;
   cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.cell:hover {
+  background: #E1BEE7;
+  transform: scale(1.05);
 }
 
 .winner-message {
   margin-top: 20px;
+  font-size: 1.5rem;
+  color: #4A148C;
 }
 
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  background-color: lightblue;
+.winner-message button {
+  background: #4A148C;
+  color: #ffffff;
   border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
   cursor: pointer;
+  transition: background 0.3s;
 }
 
-button:hover {
-  background-color: skyblue;
+.winner-message button:hover {
+  background: #6A1B9A;
 }
+
 .rules {
   margin-top: 20px;
   text-align: left;
-  padding: 20px;
+  color: #4A148C;
 }
 
 .rules h2 {
-  font-size: 20px;
+  font-size: 1.5rem;
   margin-bottom: 10px;
 }
 
@@ -57,12 +97,228 @@ button:hover {
   padding-left: 20px;
 }
 
-.rules li {
-  margin-bottom: 5px;
-}
-----------------------------footer section-------------------------------------------------------------
 .footer {
-  background-color: #f2f2f2;
-  padding: 10px;
+  margin-top: 20px;
+  font-size: 0.8rem;
+  color: #9E9E9E;
+}
+
+.footer p {
+  margin: 5px 0;
+}
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #E3F2FD;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.app {
   text-align: center;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 90%;
+  max-width: 400px;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #4A148C;
+  margin-bottom: 20px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.cell {
+  background: #F3E5F5;
+  border: 2px solid #BA68C8;
+  border-radius: 8px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #4A148C;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.cell:hover {
+  background: #E1BEE7;
+  transform: scale(1.05);
+}
+
+.winner-message {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #4A148C;
+}
+
+.winner-message button {
+  background: #4A148C;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.winner-message button:hover {
+  background: #6A1B9A;
+}
+
+.rules {
+  margin-top: 20px;
+  text-align: left;
+  color: #4A148C;
+}
+
+.rules h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.rules ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.footer {
+  margin-top: 20px;
+  font-size: 0.8rem;
+  color: #9E9E9E;
+}
+
+.footer p {
+  margin: 5px 0;
+}
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #E3F2FD;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.app {
+  text-align: center;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 90%;
+  max-width: 400px;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #4A148C;
+  margin-bottom: 20px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.cell {
+  background: #F3E5F5;
+  border: 2px solid #BA68C8;
+  border-radius: 8px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #4A148C;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.cell:hover {
+  background: #E1BEE7;
+  transform: scale(1.05);
+}
+
+.winner-message {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #4A148C;
+}
+
+.winner-message button {
+  background: #4A148C;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.winner-message button:hover {
+  background: #6A1B9A;
+}
+
+.rules {
+  margin-top: 20px;
+  text-align: left;
+  color: #4A148C;
+}
+
+.rules h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.rules ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.footer {
+  margin-top: 20px;
+  font-size: 0.8rem;
+  color: #9E9E9E;
+}
+
+.footer p {
+  margin: 5px 0;
 }
