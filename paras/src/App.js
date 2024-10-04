@@ -1,5 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+
+// Import audio files
+import backgroundMusic from './background2.mp3';
+import clickXSoundFile from './clickX.mp3';
+import clickOSoundFile from './clickO.mp3';
 
 const initialBoard = Array(9).fill(null);
 
@@ -7,13 +12,42 @@ const App = () => {
   const [board, setBoard] = useState(initialBoard);
   const [currentPlayer, setCurrentPlayer] = useState('X');
   const [winner, setWinner] = useState(null);
+  const [musicStarted, setMusicStarted] = useState(false); // State to track music
+
+  // Create Audio instances
+  const backgroundAudio = new Audio(backgroundMusic);
+  const clickXSound = new Audio(clickXSoundFile);
+  const clickOSound = new Audio(clickOSoundFile);
+
+  useEffect(() => {
+    backgroundAudio.loop = true; // Loop the background music
+    return () => {
+      backgroundAudio.pause(); // Stop the music on component unmount
+    };
+  }, []);
+
+  const startMusic = () => {
+    if (!musicStarted) {
+      backgroundAudio.play();
+      setMusicStarted(true);
+    }
+  };
 
   const handleCellClick = (index) => {
+    startMusic(); // Start music on first interaction
     if (board[index] || winner) return;
     const newBoard = [...board];
     newBoard[index] = currentPlayer;
     setBoard(newBoard);
     checkWinner(newBoard, currentPlayer);
+    
+    // Play the respective sound
+    if (currentPlayer === 'X') {
+      clickXSound.play();
+    } else {
+      clickOSound.play();
+    }
+
     setCurrentPlayer(currentPlayer === 'X' ? 'O' : 'X');
   };
 
@@ -37,6 +71,10 @@ const App = () => {
     setBoard(initialBoard);
     setCurrentPlayer('X');
     setWinner(null);
+    backgroundAudio.currentTime = 0; // Reset music to start
+    if (musicStarted) {
+      backgroundAudio.play(); // Restart background music
+    }
   };
 
   const renderCell = (index) => {
@@ -69,7 +107,7 @@ const App = () => {
         </ul>
       </div>
       <footer className="footer">
-        <p>&copy; 2023 TIC TAC TOE . All rights reserved.</p>
+        <p>&copy; 2023 TIC TAC TOE. All rights reserved.</p>
       </footer>
     </div>
   );
