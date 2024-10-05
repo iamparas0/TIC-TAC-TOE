@@ -74,6 +74,12 @@
   background-color: #f2f2f2;
   padding: 10px;
   text-align: center;
+  color: black;
+}
+
+.dark .footer {
+  background-color: #444;
+  color: white;
 }
 
 .dark {
