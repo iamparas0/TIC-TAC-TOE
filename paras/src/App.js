@@ -8,6 +8,8 @@ const App = () => {
   const [currentPlayer, setCurrentPlayer] = useState('X');
   const [winner, setWinner] = useState(null);
   const [draw, setDraw] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+ 
   const handleCellClick = (index) => {
     if (board[index] || winner || draw) return;
     const newBoard = [...board];
@@ -52,12 +54,24 @@ const App = () => {
     );
   };
 
+  const toggleTheme = () =>{
+    setIsDarkMode(prevMode => !prevMode);
+  };
+
   return (
-    <div className="app">
-      <h1>Tic Tac Toe</h1>
+    <div className={`app ${isDarkMode ? 'dark' : ''}`}>
+      <div className="header">
+        <h1 className="title">Tic Tac Toe</h1>
+
+        <label className="toggle">
+          <input type="checkbox" checked={isDarkMode} onChange={toggleTheme} />
+          <span className="slider"></span>
+        </label>
+      </div>
+
       <div className="board">
         {board.map((cell, index) =>  renderCell(index))}  
-      </div>
+      </div>      
       {winner && (
         <div className="winner-message">
           <p>Player {winner} wins!</p>

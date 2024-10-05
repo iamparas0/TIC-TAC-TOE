@@ -1,9 +1,22 @@
 .app {
   text-align: center;
+  background-color: white;
+  color: black;
+  min-height: 100vh;
 }
 
-h1 {
-  margin-top: 0;
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+}
+
+.title {
+  flex-grow: 1;
+  text-align: center;
+  padding-left: 50px;
 }
 
 .board {
@@ -23,9 +36,10 @@ h1 {
   font-weight: bold;
   background-color: lightblue;
   cursor: pointer;
+  color: black;
 }
 
-button {
+.button {
   margin: 10px 20px;
   padding: 10px 20px;
   font-size: 16px;
@@ -64,4 +78,59 @@ button {
   background-color: #f2f2f2;
   padding: 10px;
   text-align: center;
+}
+
+.dark {
+  background-color: #333;
+  color: white;
+}
+
+.dark .cell{
+  border: 2 px solid white;
+}
+
+.toggle{
+  margin-left: auto;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  position: relative;
+}
+
+.toggle input{
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
 }
