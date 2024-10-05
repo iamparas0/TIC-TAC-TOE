@@ -25,6 +25,28 @@ h1 {
   cursor: pointer;
 }
 
+/* Winning Cell Animation */
+.winning-cell {
+  animation: winning-animation 2s ease-in-out 3;  /* Runs for 2 seconds and flicks 3 times */
+  background-color: lightgreen !important;
+}
+
+@keyframes winning-animation {
+  0% {
+    transform: scale(1);
+    background-color: lightgreen;
+  }
+  50% {
+    transform: scale(1.2);
+    background-color: yellow;
+  }
+  100% {
+    transform: scale(1);
+    background-color: lightgreen;
+  }
+}
+
+
 .winner-message {
   margin-top: 20px;
 }

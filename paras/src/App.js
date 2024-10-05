@@ -8,6 +8,7 @@ const App = () => {
   const [currentPlayer, setCurrentPlayer] = useState('X');
   const [winner, setWinner] = useState(null);
   const [isDraw, setIsDraw] = useState(false);
+  const [winningCells, setWinningCells] = useState([]);
 
   const handleCellClick = (index) => {
     if (board[index] || winner || isDraw) return;
@@ -30,6 +31,7 @@ const App = () => {
       const [a, b, c] = combination;
       if (board[a] === player && board[b] === player && board[c] === player) {
         setWinner(player);
+        setWinningCells(combination);  // Set the winning cells
         return;
       }
     }
@@ -46,12 +48,17 @@ const App = () => {
     setCurrentPlayer('X');
     setWinner(null);
     setIsDraw(false);
+    setWinningCells([]);  // Reset the winning cells
   };
 
   const renderCell = (index) => {
     const value = board[index];
+    const isWinningCell = winningCells.includes(index);  // Check if the cell is part of the winning combination
     return (
-      <div className="cell" onClick={() => handleCellClick(index)}>
+      <div
+        className={`cell ${isWinningCell ? 'winning-cell' : ''}`}
+        onClick={() => handleCellClick(index)}
+      >
         {value}
       </div>
     );
