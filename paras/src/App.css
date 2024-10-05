@@ -41,6 +41,7 @@ button {
 button:hover {
   background-color: skyblue;
 }
+
 .rules {
   margin-top: 20px;
   text-align: left;
@@ -60,7 +61,8 @@ button:hover {
 .rules li {
   margin-bottom: 5px;
 }
-----------------------------footer section-------------------------------------------------------------
+
+/* Footer Section */
 .footer {
   background-color: #f2f2f2;
   padding: 10px;

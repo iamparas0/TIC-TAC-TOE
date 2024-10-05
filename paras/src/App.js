@@ -7,21 +7,23 @@ const App = () => {
   const [board, setBoard] = useState(initialBoard);
   const [currentPlayer, setCurrentPlayer] = useState('X');
   const [winner, setWinner] = useState(null);
+  const [isDraw, setIsDraw] = useState(false);
 
   const handleCellClick = (index) => {
-    if (board[index] || winner) return;
+    if (board[index] || winner || isDraw) return;
     const newBoard = [...board];
     newBoard[index] = currentPlayer;
     setBoard(newBoard);
     checkWinner(newBoard, currentPlayer);
     setCurrentPlayer(currentPlayer === 'X' ? 'O' : 'X');
+    checkDraw(newBoard);
   };
 
   const checkWinner = (board, player) => {
     const winningCombinations = [
-      [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
-      [0, 3, 6], [1, 4, 7], [2, 5, 8], // columns
-      [0, 4, 8], [2, 4, 6] // diagonals
+      [0, 1, 2], [3, 4, 5], [6, 7, 8],
+      [0, 3, 6], [1, 4, 7], [2, 5, 8],
+      [0, 4, 8], [2, 4, 6]
     ];
 
     for (let combination of winningCombinations) {
@@ -33,10 +35,17 @@ const App = () => {
     }
   };
 
+  const checkDraw = (board) => {
+    if (board.every(cell => cell !== null) && !winner) {
+      setIsDraw(true);
+    }
+  };
+
   const resetGame = () => {
     setBoard(initialBoard);
     setCurrentPlayer('X');
     setWinner(null);
+    setIsDraw(false);
   };
 
   const renderCell = (index) => {
@@ -54,12 +63,20 @@ const App = () => {
       <div className="board">
         {board.map((cell, index) => renderCell(index))}
       </div>
+      
       {winner && (
         <div className="winner-message">
           <p>Player {winner} wins!</p>
-          <button onClick={resetGame}>Restart</button>
         </div>
       )}
+      {isDraw && !winner && (
+        <div className="draw-message">
+          <p>The game is a draw!</p>
+        </div>
+      )}
+
+      <button onClick={resetGame}>Restart Game</button>
+      
       <div className="rules">
         <h2>Rules</h2>
         <ul>
