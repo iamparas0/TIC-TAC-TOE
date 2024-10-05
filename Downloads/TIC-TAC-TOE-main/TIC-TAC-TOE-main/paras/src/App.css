@@ -216,7 +216,7 @@ input:checked + .slider:before {
 }
 
 .winner {
-  background-color: yellow;
+  background-color: rgb(158, 16, 151);
 }
 
 .winner-message {
@@ -242,33 +242,45 @@ input:checked + .slider:before {
   margin-bottom: 10px;
 }
 
-/* Dark Mode */
-.dark .app {
-  background-color: #333;
-  color: white;
+/* Default styles (Light Mode) */
+.app {
+  background-color: #ffffff;
+  color: #000000;
 }
 
-.dark .cell {
-  border-color: #aaa;
+
+
+
+
+.cell {
+  border: 1px solid #000000;
 }
 
-.dark .cell:hover {
-  background-color: #555;
+.winner {
+  background-color: #b995c9; /* Highlight winning cells */
 }
 
-.dark .winner {
-  background-color: lightgreen;
+/* Dark Mode Styles */
+.app.dark {
+  background-color: #2e2e2e;
+  color: #f5f5f5;
 }
 
-.dark .winner-message {
-  color: lightgreen;
+.header.dark {
+  background-color: #333333;
 }
 
-.dark .toggle .slider {
-  background-color: #2196F3;
+.board.dark {
+  background-color: #444444;
 }
 
-.dark .toggle input:checked + .slider::before {
-  transform: translateX(14px);
+.cell.dark {
+  border: 1px solid #666666;
 }
+
+/* Winner highlighting */
+.cell.winner {
+  background-color: #5c3bff;
+}
+
 
