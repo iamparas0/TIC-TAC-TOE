@@ -39,10 +39,14 @@
   color: black;
 }
 
-.button{
-  margin: 0 20px;
+.button {
+  margin: 10px 20px;
   padding: 10px 20px;
   font-size: 16px;
+  font-weight: bold;
+  background-color: lightblue;
+  border-radius: 5px;
+  border: none;
   cursor: pointer;
 }
 
