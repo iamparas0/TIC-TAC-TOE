@@ -8,7 +8,6 @@ const App = () => {
   const [currentPlayer, setCurrentPlayer] = useState('X');
   const [winner, setWinner] = useState(null);
   const [draw, setDraw] = useState(false);
-
   const handleCellClick = (index) => {
     if (board[index] || winner || draw) return;
     const newBoard = [...board];
@@ -44,7 +43,7 @@ const App = () => {
     setDraw(false);
   };
 
-  const renderCell = (index) => {
+  const renderCell = (index) =>  {
     const value = board[index];
     return (
       <div className="cell" onClick={() => handleCellClick(index)}>
@@ -57,11 +56,20 @@ const App = () => {
     <div className="app">
       <h1>Tic Tac Toe</h1>
       <div className="board">
-        {board.map((_, index) => renderCell(index))}
+        {board.map((cell, index) =>  renderCell(index))}  
       </div>
-      {winner && <div>{winner} wins!</div>}
-      {draw && <div>It's a draw!</div>}
-      {(winner || draw) && <button onClick={resetGame}>Reset Game</button>}
+      {winner && (
+        <div className="winner-message">
+          <p>Player {winner} wins!</p>
+          <button onClick={resetGame}>Restart</button>
+        </div>
+        )}
+        {draw && (
+          <div className='draw-message'>
+            <p>It's a draw!</p>
+            <button onClick={resetGame}>Restart</button>
+          </div>
+        )}
       <div className="rules">
         <h2>Rules</h2>
         <ul>
