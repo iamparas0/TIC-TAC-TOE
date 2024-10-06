@@ -1,0 +1,30 @@
+/* Sparkle.css */
+.sparkle {
+    position: absolute;
+    width: 50px; /* Increased width for a bigger effect */
+    height: 50px; /* Increased height for a bigger effect */
+    border-radius: 50%; /* Make it circular */
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.9) 0%, rgba(255, 0, 0, 0) 80%); /* Darker gradient effect */
+    pointer-events: none; /* Prevent the sparkle from interfering with mouse events */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth animation */
+    transform: translate(-50%, -50%) scale(0.8); /* Center the sparkle at the cursor and scale down */
+    opacity: 0.8; /* Set a bit higher opacity */
+    animation: sparkle-animation 1s infinite; /* Sparkle animation */
+  }
+  
+  /* Keyframes for sparkle animation */
+  @keyframes sparkle-animation {
+    0% {
+      transform: translate(-50%, -50%) scale(0.8);
+      opacity: 0.8; /* Slightly brighter at the start */
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.4); /* Slightly grow during the animation */
+      opacity: 0.4; /* Fade out */
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(0.8); /* Back to original size */
+      opacity: 0.8; /* Back to original opacity */
+    }
+  }
+  
