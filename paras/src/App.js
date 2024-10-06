@@ -98,12 +98,11 @@ const App = () => {
         </ul>
       </div>
       <footer className="footer">
-        <p>&copy; 2023 TIC TAC TOE . All rights reserved.</p>
+        <p>&copy; 2023 TIC TAC TOE. All rights reserved.</p>
       </footer>
 
       {/* CSS Styles */}
       <style>{`
-        /* Base styles */
         .app {
           display: flex;
           flex-direction: column;
@@ -128,24 +127,22 @@ const App = () => {
         }
 
         .title {
-  text-align: center;
-  font-size: 2.5rem;
-  margin: 0;
-  color: #333;
-}
-
+          text-align: center;
+          font-size: 2.5rem;
+          margin: 0;
+          color: #333;
+        }
 
         .app.dark .title {
           color: #fff;
         }
 
         .toggle {
-  position: absolute; /* Or use 'fixed' if you want it to stay in place when scrolling */
-  right: 10px;
-  width: 40px;
-  height: 20px;
-}
-
+          position: absolute;
+          right: 10px;
+          width: 40px;
+          height: 20px;
+        }
 
         .toggle input {
           display: none;
