@@ -9,7 +9,7 @@ const App = () => {
   const [winner, setWinner] = useState(null);
   const [draw, setDraw] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
- 
+
   const handleCellClick = (index) => {
     if (board[index] || winner || draw) return;
     const newBoard = [...board];
@@ -45,7 +45,7 @@ const App = () => {
     setDraw(false);
   };
 
-  const renderCell = (index) =>  {
+  const renderCell = (index) => {
     const value = board[index];
     return (
       <div className="cell" onClick={() => handleCellClick(index)}>
@@ -54,7 +54,7 @@ const App = () => {
     );
   };
 
-  const toggleTheme = () =>{
+  const toggleTheme = () => {
     setIsDarkMode(prevMode => !prevMode);
   };
 
@@ -70,20 +70,28 @@ const App = () => {
       </div>
 
       <div className="board">
-        {board.map((cell, index) =>  renderCell(index))}  
-      </div>      
+        {board.map((cell, index) => renderCell(index))}
+      </div>
+      
+      {/* Winner/Draw Modal */}
       {winner && (
-        <div className="winner-message">
-          <p>Player {winner} wins!</p>
-          <button onClick={resetGame}>Restart</button>
+        <div className="modal">
+          <div className="modal-content">
+            <p>Player {winner} wins!</p>
+            <button onClick={resetGame}>Restart</button>
+          </div>
         </div>
-        )}
-        {draw && (
-          <div className='draw-message'>
+      )}
+      
+      {draw && (
+        <div className="modal">
+          <div className="modal-content">
             <p>It's a draw!</p>
             <button onClick={resetGame}>Restart</button>
           </div>
-        )}
+        </div>
+      )}
+
       <div className="rules">
         <h2>Rules</h2>
         <ul>
@@ -92,8 +100,9 @@ const App = () => {
           <li>If all cells are filled and no player has three marks in a row, the game is a draw.</li>
         </ul>
       </div>
+      
       <footer className="footer">
-        <p>&copy; 2023 TIC TAC TOE . All rights reserved.</p>
+        <p>&copy; 2023 TIC TAC TOE. All rights reserved.</p>
       </footer>
     </div>
   );
