@@ -1,0 +1,11 @@
+{
+  "name": "tic-tac-toe",
+  "version": "1.0.0",
+  "description": "This is a simple **Tic Tac Toe** game built with **React**. It allows two players to take turns marking cells in a 3x3 grid. The player who successfully places three marks in a row (horizontal, vertical, or diagonal) wins the game. If all cells are filled with no winner, the game results in a draw.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
