@@ -11,7 +11,7 @@ const App = () => {
   const [draw, setDraw] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
-
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const handleCellClick = (index) => {
     if (board[index] || winner || draw) return;
     const newBoard = [...board];
@@ -61,6 +61,7 @@ const App = () => {
 
   const toggleTheme = () => {
     setIsDarkMode(prevMode => !prevMode);
+    setIsDarkMode((prevMode) => !prevMode);
   };
 
   return (
