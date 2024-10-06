@@ -157,6 +157,11 @@ const App = () => {
     return null;
   };
 
+  const handleBackButton = () => {
+    setGameMode(null);
+    resetGame();
+  };
+
   if (gameMode === null) {
     return (
       <div className={`app ${isDarkMode ? 'dark' : ''}`}>
@@ -185,6 +190,10 @@ const App = () => {
           <span className="slider"></span>
         </label>
       </div>
+
+      <button className="back-button" onClick={handleBackButton}>
+        ← Back to Mode Selection
+      </button>
 
       <div className="board">
         {board.map((cell, index) => renderCell(index))}

@@ -314,3 +314,29 @@ input:checked + .slider:before {
 .mode-selection button:hover {
   background-color: #45a049;
 }
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #45a049;
+}
+
+.dark .back-button {
+  background-color: #2196F3;
+}
+
+.dark .back-button:hover {
+  background-color: #1e88e5;
+}
