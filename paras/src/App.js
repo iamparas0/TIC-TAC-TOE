@@ -12,6 +12,7 @@ const App = () => {
   const [board, setBoard] = useState(initialBoard);
   const [currentPlayer, setCurrentPlayer] = useState('X');
   const [winner, setWinner] = useState(null);
+  const [isTie, setIsTie] = useState(false); //Initialize isTie
   const [musicStarted, setMusicStarted] = useState(false); // State to track music
 
   // Create Audio instances
@@ -35,12 +36,21 @@ const App = () => {
 
   const handleCellClick = (index) => {
     startMusic(); // Start music on first interaction
-    if (board[index] || winner) return;
+    if (board[index] || winner || isTie) return;
     const newBoard = [...board];
     newBoard[index] = currentPlayer;
     setBoard(newBoard);
-    checkWinner(newBoard, currentPlayer);
-    
+    const currentWinner= checkWinner(newBoard, currentPlayer); //Check for winner
+
+// Reset isTie if there is a winner
+if(currentWinner){
+  setWinner(currentWinner);
+  setIsTie(false);
+} else{
+  checkTie(newBoard);
+}
+
+
     // Play the respective sound
     if (currentPlayer === 'X') {
       clickXSound.play();
@@ -49,6 +59,7 @@ const App = () => {
     }
 
     setCurrentPlayer(currentPlayer === 'X' ? 'O' : 'X');
+    // checkTie(newBoard); //check for tie after each move
   };
 
   const checkWinner = (board, player) => {
@@ -61,16 +72,26 @@ const App = () => {
     for (let combination of winningCombinations) {
       const [a, b, c] = combination;
       if (board[a] === player && board[b] === player && board[c] === player) {
-        setWinner(player);
-        return;
+       return player;
+        // setWinner(player);
       }
     }
+    return null;
   };
+
+  // Added function to check for tie
+  const checkTie = (board) => {
+    if (!board.includes(null) && !winner) {
+      setIsTie(true);
+    }
+  };
+
 
   const resetGame = () => {
     setBoard(initialBoard);
     setCurrentPlayer('X');
     setWinner(null);
+    setIsTie(false); //Reset tie state
     backgroundAudio.currentTime = 0; // Reset music to start
     if (musicStarted) {
       backgroundAudio.play(); // Restart background music
@@ -98,6 +119,16 @@ const App = () => {
           <button onClick={resetGame}>Restart</button>
         </div>
       )}
+
+      {/*Case for Tie*/}
+        {isTie && (
+          <div className='tie-message'>
+            <p>It's a tie.</p>
+            <button onClick={resetGame}>Restart</button>
+          </div>
+        )}
+
+
       <div className="rules">
         <h2>Rules</h2>
         <ul>
