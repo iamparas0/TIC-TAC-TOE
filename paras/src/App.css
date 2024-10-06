@@ -1,15 +1,31 @@
 .app {
   text-align: center;
+  background-color: white;
+  color: black;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
 }
 
-h1 {
-  margin-top: 0;
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  flex-grow: 1;
+  text-align: center;
+  padding-left: 50px;
+  font-size: 24px;
 }
 
 .board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
+  grid-gap: 5px;
   max-width: 300px;
   margin: 20px auto;
 }
@@ -23,30 +39,55 @@ h1 {
   font-weight: bold;
   background-color: lightblue;
   cursor: pointer;
+  color: black;
+  transition: background-color 0.3s, transform 0.2s;
+  border: 2px solid transparent;
+}
+
+.cell:hover {
+  background-color: deepskyblue; /* Change on hover */
+  transform: scale(1.05); /* Slightly scale on hover */
+}
+
+.cell.x {
+  color: blue; /* Specific color for X */
+}
+
+.cell.o {
+  color: red; /* Specific color for O */
+}
+
+.button {
+  margin: 10px 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: lightblue;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.button:hover {
+  background-color: deepskyblue;
+  transform: scale(1.05);
 }
 
 .winner-message {
   margin-top: 20px;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
-  background-color: rgb(33, 31, 161);
-  color:rgb(78, 198, 246)
-  border: none;
-  cursor: pointer;
+  color: green; /* Highlight winner message */
 }
 
-button:hover {
-  background-color: rgb(78, 198, 246);
-  color: rgb(33, 31, 161);
-}
 .rules {
   margin-top: 20px;
   text-align: left;
   padding: 20px;
+  border: 1px solid #ccc; /* Add border to rules section */
+  border-radius: 5px;
+  background-color: #f9f9f9; /* Light background for contrast */
 }
 
 .rules h2 {
@@ -67,4 +108,60 @@ button:hover {
   background-color: #f2f2f2;
   padding: 10px;
   text-align: center;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  background-color: #333;
+  color: white;
+}
+
+.dark .cell{
+  border: 2px solid white;
+}
+
+.toggle{
+  margin-left: auto;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  position: relative;
+}
+
+.toggle input{
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
 }

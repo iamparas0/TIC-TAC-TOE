@@ -7,9 +7,11 @@ const App = () => {
   const [board, setBoard] = useState(initialBoard);
   const [currentPlayer, setCurrentPlayer] = useState('X');
   const [winner, setWinner] = useState(null);
-
+  const [draw, setDraw] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+ 
   const handleCellClick = (index) => {
-    if (board[index] || winner) return;
+    if (board[index] || winner || draw) return;
     const newBoard = [...board];
     newBoard[index] = currentPlayer;
     setBoard(newBoard);
@@ -31,15 +33,19 @@ const App = () => {
         return;
       }
     }
+    if (board.every(cell => cell !== null) && !winner) {
+      setDraw(true);
+    }
   };
 
   const resetGame = () => {
     setBoard(initialBoard);
     setCurrentPlayer('X');
     setWinner(null);
+    setDraw(false);
   };
 
-  const renderCell = (index) => {
+  const renderCell = (index) =>  {
     const value = board[index];
     return (
       <div className="cell" onClick={() => handleCellClick(index)}>
@@ -48,18 +54,36 @@ const App = () => {
     );
   };
 
+  const toggleTheme = () =>{
+    setIsDarkMode(prevMode => !prevMode);
+  };
+
   return (
-    <div className="app">
-      <h1>Tic Tac Toe</h1>
-      <div className="board">
-        {board.map((cell, index) => renderCell(index))}
+    <div className={`app ${isDarkMode ? 'dark' : ''}`}>
+      <div className="header">
+        <h1 className="title">Tic Tac Toe</h1>
+
+        <label className="toggle">
+          <input type="checkbox" checked={isDarkMode} onChange={toggleTheme} />
+          <span className="slider"></span>
+        </label>
       </div>
+
+      <div className="board">
+        {board.map((cell, index) =>  renderCell(index))}  
+      </div>      
       {winner && (
         <div className="winner-message">
           <p>Player {winner} wins!</p>
           <button onClick={resetGame}>Restart</button>
         </div>
-      )}
+        )}
+        {draw && (
+          <div className='draw-message'>
+            <p>It's a draw!</p>
+            <button onClick={resetGame}>Restart</button>
+          </div>
+        )}
       <div className="rules">
         <h2>Rules</h2>
         <ul>
@@ -69,7 +93,7 @@ const App = () => {
         </ul>
       </div>
       <footer className="footer">
-        <p>&copy; 2023 Your Game Name. All rights reserved.</p>
+        <p>&copy; 2023 TIC TAC TOE . All rights reserved.</p>
       </footer>
     </div>
   );
