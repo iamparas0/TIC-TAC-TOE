@@ -28,7 +28,7 @@
   margin: 20px auto;
   padding: 20px;
   border-radius: 15px;
-  background: linear-gradient(120deg, #4caf50, #8bc34a);
+  background: linear-gradient(120deg, #0e2e4e, #1f4679);
   transition: background 0.5s, transform 0.5s ease;
 }
 
@@ -54,7 +54,7 @@
 }
 
 .board:hover {
-  background: linear-gradient(120deg, #2e7d32, #4caf50);
+  background: linear-gradient(120deg, #0d2430, #4c7daf);
   transform: translateY(-5px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
@@ -192,7 +192,7 @@ input:checked + .slider:before {
 }
 
 .dark .board {
-  background: linear-gradient(120deg, #555, #666);
+  background: linear-gradient(120deg, #220d06, #1b1616);
 }
 
 .dark .cell {
