@@ -83,4 +83,7 @@ This project is licensed under the MIT License. See the LICENSE file for details
 # 📬 **Contact**
 For any inquiries or suggestions, feel free to reach out to: [pearsparas@gmail.com](mailto:pearsparas@gmail.com)
 
-Enjoy the game and happy coding! 🎉
+# ⭐ Give it a Star!
+If you find this project useful, please give it a **star**!
+
+### Enjoy the game and happy coding! 🎉
