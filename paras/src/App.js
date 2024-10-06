@@ -12,6 +12,10 @@ const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
+  // State variables for win count
+  const [xWins, setXWins] = useState(0);
+  const [oWins, setOWins] = useState(0);
+
   const handleCellClick = (index) => {
     if (board[index] || winner || draw) return;
     const newBoard = [...board];
@@ -32,6 +36,11 @@ const App = () => {
       const [a, b, c] = combination;
       if (board[a] === player && board[b] === player && board[c] === player) {
         setWinner(player);
+        if (player === 'X') {
+          setXWins(xWins + 1); // Increment X's win count
+        } else {
+          setOWins(oWins + 1); // Increment O's win count
+        }
         return;
       }
     }
@@ -81,6 +90,15 @@ const App = () => {
           <input type="checkbox" checked={isDarkMode} onChange={toggleTheme} />
           <span className="slider"></span>
         </label>
+      </div>
+
+      <div className="winner-counter">
+        <div className={winner === 'X' ? 'winner-highlight' : ''}>
+          X Wins: {xWins}
+        </div>
+        <div className={winner === 'O' ? 'winner-highlight' : ''}>
+          O Wins: {oWins}
+        </div>
       </div>
 
       <div className="board">
