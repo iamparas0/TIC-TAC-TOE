@@ -115,7 +115,7 @@
   color: #28a745;
 }
 
-/* Result Board */
+
 .result-board {
   margin: 20px 0;
   padding: 20px;
@@ -168,6 +168,17 @@
 
 .dark .cell{
   border: 2 px solid white;
+}
+.dark .result-board{
+  background-color: #444;
+  color:#fff;
+}
+.dark .result-board h2 {
+  color: #fff; 
+}
+
+.dark .result-board p {
+  color: #ddd; 
 }
 
 .toggle{
