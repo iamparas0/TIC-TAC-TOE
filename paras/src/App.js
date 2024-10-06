@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import Sparkle from './Sparkle'; // Import the Sparkle component
 
 const initialBoard = Array(9).fill(null);
 
@@ -9,7 +10,8 @@ const App = () => {
   const [winner, setWinner] = useState(null);
   const [draw, setDraw] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
- 
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
   const handleCellClick = (index) => {
     if (board[index] || winner || draw) return;
     const newBoard = [...board];
@@ -45,7 +47,7 @@ const App = () => {
     setDraw(false);
   };
 
-  const renderCell = (index) =>  {
+  const renderCell = (index) => {
     const value = board[index];
     return (
       <div className="cell" onClick={() => handleCellClick(index)}>
@@ -54,9 +56,21 @@ const App = () => {
     );
   };
 
-  const toggleTheme = () =>{
-    setIsDarkMode(prevMode => !prevMode);
+  const toggleTheme = () => {
+    setIsDarkMode((prevMode) => !prevMode);
   };
+
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      setMousePosition({ x: event.clientX, y: event.clientY });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
 
   return (
     <div className={`app ${isDarkMode ? 'dark' : ''}`}>
@@ -70,21 +84,23 @@ const App = () => {
       </div>
 
       <div className="board">
-        {board.map((cell, index) =>  renderCell(index))}  
-      </div>      
+        {board.map((cell, index) => renderCell(index))}
+      </div>
+
       {winner && (
         <div className="winner-message">
           <p>Player {winner} wins!</p>
           <button onClick={resetGame}>Restart</button>
         </div>
-        )}
-        {draw && (
-          <div className='draw-message'>
-            <p>It's a draw!</p>
-            <button onClick={resetGame}>Restart</button>
-          </div>
-        )}
-      <div className="rules">
+      )}
+      {draw && (
+        <div className="draw-message">
+          <p>It's a draw!</p>
+          <button onClick={resetGame}>Restart</button>
+        </div>
+      )}
+
+      <div className="rules-card">
         <h2>Rules</h2>
         <ul>
           <li>Two players take turns marking cells in a 3x3 grid.</li>
@@ -92,9 +108,13 @@ const App = () => {
           <li>If all cells are filled and no player has three marks in a row, the game is a draw.</li>
         </ul>
       </div>
+
       <footer className="footer">
-        <p>&copy; 2023 TIC TAC TOE . All rights reserved.</p>
+        <p>&copy; 2023 TIC TAC TOE. All rights reserved.</p>
       </footer>
+
+      {/* Render the sparkle effect */}
+      <Sparkle x={mousePosition.x} y={mousePosition.y} />
     </div>
   );
 };
