@@ -73,8 +73,8 @@ git checkout -b feature-branch
 ```bash
 git push origin feature-branch
 ```
-
-6. Submit a pull request to the main repository.
+6. Please let me know before PR and aslo put SS or Short video so i can preview .
+7. Submit a pull request to the main repository.
 
 
 # 📄 **License**
