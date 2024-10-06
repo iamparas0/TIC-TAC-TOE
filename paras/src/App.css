@@ -3,27 +3,30 @@
   background-color: white;
   color: black;
   min-height: 100vh;
+  font-family: Arial, sans-serif;
+  padding: 20px;
 }
 
-.header{
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 20px;
   position: relative;
 }
 
 .title {
   flex-grow: 1;
   text-align: center;
-  padding-left: 50px;
+  font-size: 36px;
+  font-weight: bold;
 }
 
 .board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
-  max-width: 300px;
+  max-width: 320px;
   margin: 20px auto;
 }
 
@@ -32,15 +35,30 @@
   align-items: center;
   justify-content: center;
   height: 100px;
-  font-size: 36px;
+  font-size: 48px;
   font-weight: bold;
   background-color: lightblue;
   cursor: pointer;
   color: black;
+  transition: background-color 0.3s;
+}
+
+.cell:hover {
+  background-color: deepskyblue;
+}
+
+.player-names {
+  margin: 20px 0;
+}
+
+.player-names input {
+  margin: 0 10px;
+  padding: 10px;
+  font-size: 18px;
 }
 
 .button {
-  margin: 10px 20px;
+  margin: 10px;
   padding: 10px 20px;
   font-size: 16px;
   font-weight: bold;
@@ -48,10 +66,17 @@
   border-radius: 5px;
   border: none;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.winner-message {
+.button:hover {
+  background-color: deepskyblue;
+}
+
+.winner-message,
+.draw-message {
   margin-top: 20px;
+  font-size: 24px;
 }
 
 .rules {
@@ -61,7 +86,7 @@
 }
 
 .rules h2 {
-  font-size: 20px;
+  font-size: 22px;
   margin-bottom: 10px;
 }
 
@@ -73,7 +98,7 @@
 .rules li {
   margin-bottom: 5px;
 }
-----------------------------footer section-------------------------------------------------------------
+
 .footer {
   background-color: #f2f2f2;
   padding: 10px;
@@ -85,11 +110,11 @@
   color: white;
 }
 
-.dark .cell{
-  border: 2 px solid white;
+.dark .cell {
+  border: 2px solid white;
 }
 
-.toggle{
+.toggle {
   margin-left: auto;
   display: inline-block;
   width: 60px;
@@ -97,7 +122,7 @@
   position: relative;
 }
 
-.toggle input{
+.toggle input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -111,7 +136,7 @@
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  transition: .4s;
+  transition: 0.4s;
   border-radius: 34px;
 }
 
@@ -123,12 +148,12 @@
   left: 4px;
   bottom: 4px;
   background-color: white;
-  transition: .4s;
+  transition: 0.4s;
   border-radius: 50%;
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #2196f3;
 }
 
 input:checked + .slider:before {
