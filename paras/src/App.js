@@ -180,7 +180,7 @@ const App = () => {
         {board.map((cell, index) => renderCell(index))}
       </div>
       <div className="current-player">
-        Current Player: {currentPlayer === 'X' ? 'You' : (isComputerMode ? 'Computer' : 'Player 2')}
+        Current Player: {currentPlayer === 'X' ? 'You' : (isComputerMode ? 'Computer' : 'Player')}
       </div>
       {winner && (
         <div className="winner-message">
