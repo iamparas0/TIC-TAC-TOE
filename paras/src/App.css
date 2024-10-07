@@ -25,7 +25,7 @@
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
   max-width: 300px;
-  margin: 20px auto;
+  margin: 0px auto;
   padding: 20px;
   border-radius: 15px;
   background: linear-gradient(120deg, #0e2e4e, #1f4679);
@@ -116,11 +116,10 @@
 }
 
 .toggle {
-  margin-left: auto;
+  position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
-  position: relative;
 }
 
 .toggle input {
@@ -139,6 +138,89 @@
   background-color: #ccc;
   transition: .4s;
   border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  transition: opacity 0.3s ease;
+}
+
+.sun {
+  left: 7px;
+  top: 19px;
+  font-size: 18px;
+  font-weight: bold;
+  opacity: 1;
+  color: #f1c40f; /* Sunny yellow color */
+}
+
+.moon {
+  right: 5px;
+  top: 19px;
+  font-size: 18px;
+  font-weight: bold;
+  opacity: 0;
+  color: #f1c40f; /* Same color as sun for consistency */
+}
+
+input:checked + .slider .sun {
+  opacity: 0;
+}
+
+input:checked + .slider .moon {
+  opacity: 1;
+}
+
+/* Ensure contrast in both light and dark modes */
+.dark .toggle .moon,
+.dark .toggle .sun {
+  color: #f1c40f; /* Maintain yellow color in dark mode */
+}
+
+.restart-button{
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.restart-button:hover {
+  background-color: #2f8cd3;
+  transform: scale(1.1);
+}
+
+.winner-message{
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
 }
 
 .slider:before {
@@ -224,7 +306,7 @@ input:checked + .slider:before {
 
 .rules-card h2 {
   text-align: center; /* Center align the title */
-  margin-bottom: 20px; /* Space below the title */
+  margin-bottom: 10px; /* Space below the title */
   font-size: 28px; /* Title font size */
   color: inherit; /* Use inherited color */
   font-weight: bold; /* Bold title */
@@ -237,7 +319,7 @@ input:checked + .slider:before {
 }
 
 .rules-card li {
-  margin: 15px 0; /* Space between list items */
+  margin: 5px 0; /* Space between list items */
   padding: 10px; /* Padding inside list items */
   background-color: #e0e0e0; /* Light gray background for list items in light theme */
   border-radius: 8px; /* Rounded corners for list items */
