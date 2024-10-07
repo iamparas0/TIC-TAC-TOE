@@ -9,6 +9,58 @@
       name="description"
       content="Web site created using create-react-app"
     />
+    <style>
+      body {
+          font-family: 'Poppins', sans-serif;
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
+          margin: 0;
+      }
+
+      #root {
+          flex: 1;
+      }
+
+      .follow-us {
+          background-color: #f4f4f4;
+          padding: 20px;
+          text-align: center;
+          margin-top: auto;
+      }
+
+      .follow-us h2 {
+          color: grey; /* Grey color for the heading */
+          font-size: 28px; /* Increased size for the heading */
+          margin-bottom: 15px; /* Space between heading and icons */
+      }
+
+      .follow-us a {
+          margin: 0 15px;
+          color: grey; /* Grey color for icons */
+          text-decoration: none;
+      }
+
+      .follow-us a:hover {
+          color: #007bff; /* Change color on hover */
+      }
+
+      .follow-us a:focus {
+          outline: 2px solid #007bff;
+          outline-offset: 2px;
+      }
+
+      .follow-us a img {
+          width: 50px; /* Set logo size */
+          height: 50px;
+          filter: grayscale(100%); /* Grey color for icons */
+          transition: filter 0.3s; /* Smooth transition effect */
+      }
+
+      .follow-us a:hover img {
+          filter: grayscale(0%); /* Color on hover */
+      }
+  </style>
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -29,6 +81,23 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+
+      <div class="follow-us">
+          <h2>Follow Us</h2>
+          <a href="mailto:pearsparas@gmail.com" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email Logo" />
+          </a>
+          <a href="https://x.com/iamparas0" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter Logo" />
+          </a>
+          <a href="https://www.linkedin.com/in/iamparas0/" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Logo" />
+          </a>
+          <a href="https://www.instagram.com/iamparas.0/" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram Logo" />
+          </a>
+      </div>
+    
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -39,5 +108,6 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
   </body>
 </html>
