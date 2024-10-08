@@ -5,7 +5,7 @@ This is a simple **Tic Tac Toe** game built with **React**. It allows two player
 ---
 
 ## 🌟 **Demo**
-Check out the live version of the game [here](https://iamparas0.github.io/TIC-TAC-TOE).
+Check out the live version of the game [here](https://tic-tac-toe-peach-eight.vercel.app/).
 
 ---
 
