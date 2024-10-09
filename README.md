@@ -76,14 +76,9 @@ git push origin feature-branch
 6. Please let me know before PR and aslo put SS or Short video so i can preview .
 7. Submit a pull request to the main repository.
 
+
 # 📄 **License**
 This project is licensed under the MIT License. See the LICENSE file for details.
-
-# 🌟 **Our Contributors**
-<a href="https://github.com/iamparas0/TIC-TAC-TOE/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=iamparas0/TIC-TAC-TOE" />
-</a>
-<br>
 
 # 📬 **Contact**
 For any inquiries or suggestions, feel free to reach out to: [pearsparas@gmail.com](mailto:pearsparas@gmail.com)
