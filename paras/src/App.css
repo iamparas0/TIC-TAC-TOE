@@ -57,13 +57,16 @@
   transform: scale(1.05); /* Slightly scale on hover */
 }
 
+.cell.clicked {
+  background-color: #f998fe; /* Changes the color of the boxes on click */
+}
+
 .cell.x {
   color: blue; /* Specific color for X */
 }
 
 .cell.o {
   color: red; /* Specific color for O */
-=======
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
@@ -91,21 +94,18 @@
   border-radius: 5px;
   border: none;
   cursor: pointer;
-
   transition: background-color 0.3s, transform 0.2s;
 }
 
 .button:hover {
   background-color: deepskyblue;
   transform: scale(1.05);
-
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .button:hover {
   background-color: #2196F3;
   transform: scale(1.1);
-
 }
 
 .winner-message {
@@ -149,9 +149,6 @@
   background-color: #333;
   color: white;
 }
-
-
-.
 
 .dark .cell {
   border: 2px solid white;
