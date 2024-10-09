@@ -1,12 +1,11 @@
+/* App.css */
 .app {
   text-align: center;
   background-color: white;
   color: black;
   min-height: 100vh;
-
   font-family: Arial, sans-serif;
   transition: background-color 0.3s, color 0.3s;
-
 }
 
 .header {
@@ -47,38 +46,30 @@
   background-color: lightblue;
   cursor: pointer;
   color: black;
-
   transition: background-color 0.3s, transform 0.2s;
   border: 2px solid transparent;
 }
 
 .cell:hover {
-  background-color: deepskyblue; /* Change on hover */
-  transform: scale(1.05); /* Slightly scale on hover */
+  background-color: deepskyblue;
+  transform: scale(1.05);
 }
 
 .cell.x {
-  color: blue; /* Specific color for X */
+  color: blue;
 }
 
 .cell.o {
-  color: red; /* Specific color for O */
+  color: red;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.cell:hover {
-  background-color: #80deea;
-  transform: scale(1.1);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.5);
 }
 
 .board:hover {
   background: linear-gradient(120deg, #0d2430, #4c7daf);
   transform: translateY(-5px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-
 }
 
 .button {
@@ -90,37 +81,28 @@
   border-radius: 5px;
   border: none;
   cursor: pointer;
-
   transition: background-color 0.3s, transform 0.2s;
 }
 
 .button:hover {
   background-color: deepskyblue;
   transform: scale(1.05);
-
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.button:hover {
-  background-color: #2196F3;
-  transform: scale(1.1);
-
 }
 
 .winner-message {
   margin-top: 20px;
   font-size: 20px;
   font-weight: bold;
-  color: green; /* Highlight winner message */
+  color: green;
 }
 
 .rules {
   margin-top: 20px;
   text-align: left;
   padding: 20px;
-  border: 1px solid #ccc; /* Add border to rules section */
+  border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: #f9f9f9; /* Light background for contrast */
+  background-color: #f9f9f9;
 }
 
 .rules h2 {
@@ -138,10 +120,13 @@
 }
 
 .footer {
-  background-color: #f2f2f2;
-  padding: 10px;
   text-align: center;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  font-size: 14px;
+  border-top: 1px solid #ccc;
+  background-color: #f9f9f9;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .dark {
@@ -149,57 +134,8 @@
   color: white;
 }
 
-
-.
-
 .dark .cell {
   border: 2px solid white;
-}
-
-.toggle {
-  margin-left: auto;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-  position: relative;
-}
-
-.toggle input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: .4s;
-  border-radius: 34px;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: .4s;
-  border-radius: 50%;
-}
-
-input:checked + .slider {
-  background-color: #2196F3;
-}
-
-input:checked + .slider:before {
-  transform: translateX(26px);
 }
 
 .winning-cell {
@@ -242,91 +178,67 @@ input:checked + .slider:before {
   border: 2px solid #999;
 }
 
-/* Base styles for both light and dark modes */
-/* Light Theme Styles */
 .rules-card {
-  background-color: #f9f9f9; /* Light background for the card */
-  border-radius: 15px; /* More rounded corners */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-  padding: 30px; /* Padding for spacing */
-  max-width: 800px; /* Width of the card */
-  margin: 20px auto; /* Centering the card */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
-  font-family: 'Arial', sans-serif; /* Modern font */
-  text-align: left; /* Left align text */
-  color: #333; /* Dark text color for readability */
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  max-width: 800px;
+  margin: 20px auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Arial', sans-serif;
+  text-align: left;
+  color: #333;
 }
 
-/* Dark Theme Styles */
 .dark .rules-card {
-  background-color: #444; /* Dark background for the card */
-  color: #f9f9f9; /* Light text color for readability */
+  background-color: #444;
+  color: #f9f9f9;
 }
 
 .rules-card h2 {
-  text-align: center; /* Center align the title */
-  margin-bottom: 20px; /* Space below the title */
-  font-size: 28px; /* Title font size */
-  color: inherit; /* Use inherited color */
-  font-weight: bold; /* Bold title */
-  letter-spacing: 1px; /* Spacing between letters for a modern touch */
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: inherit;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 .rules-card ul {
-  list-style-type: none; /* No default list style */
-  padding: 0; /* Remove padding */
+  list-style-type: none;
+  padding: 0;
 }
 
 .rules-card li {
-  margin: 15px 0; /* Space between list items */
-  padding: 10px; /* Padding inside list items */
-  background-color: #e0e0e0; /* Light gray background for list items in light theme */
-  border-radius: 8px; /* Rounded corners for list items */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Shadow for list items */
-  transition: background-color 0.3s ease; /* Smooth background color change */
-  color: inherit; /* Use inherited text color */
+  margin: 15px 0;
+  padding: 10px;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  color: inherit;
 }
 
 .dark .rules-card li {
-  background-color: #666; /* Dark gray background for list items in dark theme */
+  background-color: #666;
 }
 
 .rules-card li:hover {
-  background-color: #d5d5d5; /* Slightly darker gray on hover in light theme */
+  background-color: #d5d5d5;
 }
 
 .dark .rules-card li:hover {
-  background-color: #777; /* Slightly lighter gray on hover in dark theme */
+  background-color: #777;
 }
 
-.footer {
-  text-align: center; /* Center the footer text */
-  padding: 20px; /* Padding for spacing */
-  font-size: 14px; /* Font size for the footer */
-  border-top: 1px solid #ccc; /* Light border at the top */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
-}
-
-/* Light Theme Footer */
-.footer {
-  background-color: #f9f9f9; /* Light background color */
-  color: #333; /* Dark text color */
-}
-
-/* Dark Theme Footer */
-.dark .footer {
-  background-color: #222; /* Dark background color */
-  color: #f9f9f9; /* Light text color */
-}
-
-/* Optional: Hover effect for links in the footer */
 .footer a {
-  color: inherit; /* Use the footer text color */
-  text-decoration: none; /* Remove underline from links */
+  color: inherit;
+  text-decoration: none;
 }
 
 .footer a:hover {
-  text-decoration: underline; /* Underline on hover */
+  text-decoration: underline;
 }
 
 .mode-selection {
@@ -381,28 +293,31 @@ input:checked + .slider:before {
 .dark .back-button:hover {
   background-color: #1e88e5;
 }
-/* App.css */
 
-/* Styles for the dropdown */
-select {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  background-color: white; /* Light background */
-  color: #333; /* Dark text color */
-  font-size: 16px;
+/* New theme toggle styles */
+.theme-toggle {
+  display: inline-flex;
+  background-color: #2c2c2c;
+  border-radius: 20px;
+  padding: 4px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.theme-button {
+  background: none;
+  border: none;
   cursor: pointer;
-  transition: border 0.3s ease, background-color 0.3s ease;
+  padding: 8px 12px;
+  border-radius: 16px;
+  transition: background-color 0.3s;
 }
 
-select:focus {
-  outline: none;
-  border-color: #007bff; /* Change to your theme's color */
+.theme-button.active {
+  background-color: #4a4a4a;
 }
 
-/* Dark mode styles */
-.dark select {
-  background-color: #444; /* Dark background for dark mode */
-  color: #fff; /* Light text color for dark mode */
-  border: 1px solid #555; /* Darker border for dark mode */
+.theme-button span {
+  font-size: 18px;
 }
