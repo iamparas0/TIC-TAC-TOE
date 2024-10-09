@@ -9,9 +9,40 @@ const App = () => {
   const [currentPlayer, setCurrentPlayer] = useState('X');
   const [winner, setWinner] = useState(null);
   const [draw, setDraw] = useState(false);
+  const [theme, setTheme] = useState('system'); // 'light', 'dark', 'system'
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [gameMode, setGameMode] = useState(null); // 'multiplayer' or 'ai'
+
+  // Detect system theme
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') || 'system';
+    setTheme(savedTheme);
+    
+    if (savedTheme === 'dark') {
+      setIsDarkMode(true);
+    } else if (savedTheme === 'light') {
+      setIsDarkMode(false);
+    } else {
+      const systemDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setIsDarkMode(systemDarkMode);
+    }
+  }, []);
+
+  const handleThemeChange = (e) => {
+    const selectedTheme = e.target.value;
+    setTheme(selectedTheme);
+    localStorage.setItem('theme', selectedTheme);
+    
+    if (selectedTheme === 'dark') {
+      setIsDarkMode(true);
+    } else if (selectedTheme === 'light') {
+      setIsDarkMode(false);
+    } else {
+      const systemDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setIsDarkMode(systemDarkMode);
+    }
+  };
 
   const handleCellClick = (index) => {
     if (board[index] || winner || draw) return;
@@ -55,10 +86,6 @@ const App = () => {
         {value}
       </div>
     );
-  };
-
-  const toggleTheme = () => {
-    setIsDarkMode((prevMode) => !prevMode);
   };
 
   useEffect(() => {
@@ -167,10 +194,11 @@ const App = () => {
       <div className={`app ${isDarkMode ? 'dark' : ''}`}>
         <div className="header">
           <h1 className="title">Tic Tac Toe</h1>
-          <label className="toggle">
-            <input type="checkbox" checked={isDarkMode} onChange={toggleTheme} />
-            <span className="slider"></span>
-          </label>
+          <select value={theme} onChange={handleThemeChange}>
+            <option value="system">System</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
         </div>
         <div className="mode-selection">
           <h2>Choose Game Mode</h2>
@@ -185,10 +213,11 @@ const App = () => {
     <div className={`app ${isDarkMode ? 'dark' : ''}`}>
       <div className="header">
         <h1 className="title">Tic Tac Toe</h1>
-        <label className="toggle">
-          <input type="checkbox" checked={isDarkMode} onChange={toggleTheme} />
-          <span className="slider"></span>
-        </label>
+        <select value={theme} onChange={handleThemeChange}>
+          <option value="system">System</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
       </div>
 
       <button className="back-button" onClick={handleBackButton}>
@@ -221,11 +250,7 @@ const App = () => {
         </ul>
       </div>
 
-      <footer className="footer">
-        <p>&copy; 2023 TIC TAC TOE. All rights reserved.</p>
-      </footer>
-
-      <Sparkle x={mousePosition.x} y={mousePosition.y} />
+      <Sparkle mousePosition={mousePosition} />
     </div>
   );
 };

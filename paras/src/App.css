@@ -381,3 +381,28 @@ input:checked + .slider:before {
 .dark .back-button:hover {
   background-color: #1e88e5;
 }
+/* App.css */
+
+/* Styles for the dropdown */
+select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: white; /* Light background */
+  color: #333; /* Dark text color */
+  font-size: 16px;
+  cursor: pointer;
+  transition: border 0.3s ease, background-color 0.3s ease;
+}
+
+select:focus {
+  outline: none;
+  border-color: #007bff; /* Change to your theme's color */
+}
+
+/* Dark mode styles */
+.dark select {
+  background-color: #444; /* Dark background for dark mode */
+  color: #fff; /* Light text color for dark mode */
+  border: 1px solid #555; /* Darker border for dark mode */
+}
