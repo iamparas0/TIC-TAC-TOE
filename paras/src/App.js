@@ -51,14 +51,14 @@ const App = () => {
   const renderCell = (index) => {
     const value = board[index];
     return (
-      <div className="cell" onClick={() => handleCellClick(index)}>
+      <div className={`cell ${value}`} onClick={() => handleCellClick(index)}>
         {value}
       </div>
     );
   };
 
   const toggleTheme = () => {
-    setIsDarkMode((prevMode) => !prevMode);
+    setIsDarkMode(prevMode => !prevMode);
   };
 
   useEffect(() => {
@@ -194,6 +194,13 @@ const App = () => {
       <button className="back-button" onClick={handleBackButton}>
         ← Back to Mode Selection
       </button>
+
+      {/* Turn indicator */}
+      {!winner && !draw && (
+        <div className="turn-indicator">
+          <p>Player {currentPlayer}'s turn</p>
+        </div>
+      )}
 
       <div className="board">
         {board.map((cell, index) => renderCell(index))}
