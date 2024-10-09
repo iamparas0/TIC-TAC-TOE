@@ -222,7 +222,7 @@ const App = () => {
       </div>
 
       <footer className="footer">
-        <p>&copy; 2023 TIC TAC TOE. All rights reserved.</p>
+        <p>&copy; 2024 TIC TAC TOE. All rights reserved.</p>
       </footer>
 
       <Sparkle x={mousePosition.x} y={mousePosition.y} />
