@@ -17,6 +17,7 @@ body {
   height: 100vh;
 }
 
+/* App container styling */
 .app {
   text-align: center;
   background: #ffffff;
@@ -27,12 +28,14 @@ body {
   max-width: 400px;
 }
 
+/* Main header styling */
 h1 {
   font-size: 2rem;
   color: #4A148C;
   margin-bottom: 20px;
 }
 
+/* Board grid layout */
 .board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -40,6 +43,7 @@ h1 {
   margin-bottom: 20px;
 }
 
+/* Cell styling */
 .cell {
   background: #F3E5F5;
   border: 2px solid #BA68C8;
@@ -60,6 +64,7 @@ h1 {
   transform: scale(1.05);
 }
 
+/* Winner message styling */
 .winner-message {
   margin-top: 20px;
   font-size: 1.5rem;
@@ -81,6 +86,7 @@ h1 {
   background: #6A1B9A;
 }
 
+/* Rules section styling */
 .rules {
   margin-top: 20px;
   text-align: left;
@@ -97,6 +103,7 @@ h1 {
   padding-left: 20px;
 }
 
+/* Footer styling */
 .footer {
   margin-top: 20px;
   font-size: 0.8rem;
@@ -106,219 +113,130 @@ h1 {
 .footer p {
   margin: 5px 0;
 }
-/* Import Google font - Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+/* Dark mode styling */
+.dark {
+  background-color: #333;
+  color: white;
 }
 
-body {
-  background: #E3F2FD;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+.dark .app {
+  background: linear-gradient(45deg, #333, #444);
 }
 
-.app {
-  text-align: center;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  width: 90%;
-  max-width: 400px;
+.dark .board {
+  background: linear-gradient(120deg, #220d06, #1b1616);
 }
 
-h1 {
-  font-size: 2rem;
-  color: #4A148C;
-  margin-bottom: 20px;
+.dark .cell {
+  background-color: #333;
+  color: white;
+  border: 2px solid #999;
 }
 
-.board {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-bottom: 20px;
+.dark .footer {
+  background-color: #222;
+  color: #f9f9f9;
 }
 
-.cell {
-  background: #F3E5F5;
-  border: 2px solid #BA68C8;
-  border-radius: 8px;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-  font-weight: bold;
-  color: #4A148C;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-}
-
-.cell:hover {
-  background: #E1BEE7;
-  transform: scale(1.05);
-}
-
-.winner-message {
-  margin-top: 20px;
-  font-size: 1.5rem;
-  color: #4A148C;
-}
-
-.winner-message button {
-  background: #4A148C;
-  color: #ffffff;
+/* Back button styling */
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
   border: none;
   border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 1rem;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background-color 0.3s ease;
 }
 
-.winner-message button:hover {
-  background: #6A1B9A;
+.back-button:hover {
+  background-color: #45a049;
 }
 
-.rules {
-  margin-top: 20px;
-  text-align: left;
-  color: #4A148C;
+.dark .back-button {
+  background-color: #2196F3;
 }
 
-.rules h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+.dark .back-button:hover {
+  background-color: #1e88e5;
 }
 
-.rules ul {
-  list-style-type: disc;
-  padding-left: 20px;
+/* Toggle button styling */
+.toggle {
+  margin-left: auto;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  position: relative;
 }
 
-.footer {
-  margin-top: 20px;
-  font-size: 0.8rem;
-  color: #9E9E9E;
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
-.footer p {
-  margin: 5px 0;
-}
-/* Import Google font - Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-body {
-  background: #E3F2FD;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-.app {
-  text-align: center;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  width: 90%;
-  max-width: 400px;
-}
-
-h1 {
-  font-size: 2rem;
-  color: #4A148C;
-  margin-bottom: 20px;
-}
-
-.board {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.cell {
-  background: #F3E5F5;
-  border: 2px solid #BA68C8;
-  border-radius: 8px;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-  font-weight: bold;
-  color: #4A148C;
+.slider {
+  position: absolute;
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
 }
 
-.cell:hover {
-  background: #E1BEE7;
-  transform: scale(1.05);
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
 }
 
-.winner-message {
-  margin-top: 20px;
-  font-size: 1.5rem;
-  color: #4A148C;
+input:checked + .slider {
+  background-color: #2196F3;
 }
 
-.winner-message button {
-  background: #4A148C;
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s;
+input:checked + .slider:before {
+  transform: translateX(26px);
 }
 
-.winner-message button:hover {
-  background: #6A1B9A;
+/* Animation for winning cells */
+.winning-cell {
+  animation: pulse 1s infinite;
 }
 
-.rules {
-  margin-top: 20px;
-  text-align: left;
-  color: #4A148C;
+@keyframes pulse {
+  0% {
+    background-color: lightgreen;
+  }
+  50% {
+    background-color: limegreen;
+  }
+  100% {
+    background-color: lightgreen;
+  }
 }
 
-.rules h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-.rules ul {
-  list-style-type: disc;
-  padding-left: 20px;
-}
-
-.footer {
-  margin-top: 20px;
-  font-size: 0.8rem;
-  color: #9E9E9E;
-}
-
-.footer p {
-  margin: 5px 0;
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+  .board {
+    max-width: 200px;
+  }
+  .cell {
+    height: 80px;
+    font-size: 24px;
+  }
 }
