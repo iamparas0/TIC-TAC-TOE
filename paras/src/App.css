@@ -3,7 +3,10 @@
   background-color: white;
   color: black;
   min-height: 100vh;
+
+  font-family: Arial, sans-serif;
   transition: background-color 0.3s, color 0.3s;
+
 }
 
 .header {
@@ -12,18 +15,20 @@
   align-items: center;
   padding: 10px;
   position: relative;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .title {
   flex-grow: 1;
   text-align: center;
   padding-left: 50px;
+  font-size: 24px;
 }
 
 .board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
+  grid-gap: 5px;
   max-width: 300px;
   margin: 20px auto;
   padding: 20px;
@@ -42,6 +47,22 @@
   background-color: lightblue;
   cursor: pointer;
   color: black;
+
+  transition: background-color 0.3s, transform 0.2s;
+  border: 2px solid transparent;
+}
+
+.cell:hover {
+  background-color: deepskyblue; /* Change on hover */
+  transform: scale(1.05); /* Slightly scale on hover */
+}
+
+.cell.x {
+  color: blue; /* Specific color for X */
+}
+
+.cell.o {
+  color: red; /* Specific color for O */
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
@@ -57,6 +78,7 @@
   background: linear-gradient(120deg, #0d2430, #4c7daf);
   transform: translateY(-5px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+
 }
 
 .button {
@@ -68,22 +90,37 @@
   border-radius: 5px;
   border: none;
   cursor: pointer;
+
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.button:hover {
+  background-color: deepskyblue;
+  transform: scale(1.05);
+
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .button:hover {
   background-color: #2196F3;
   transform: scale(1.1);
+
 }
 
 .winner-message {
   margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: green; /* Highlight winner message */
 }
 
 .rules {
   margin-top: 20px;
   text-align: left;
   padding: 20px;
+  border: 1px solid #ccc; /* Add border to rules section */
+  border-radius: 5px;
+  background-color: #f9f9f9; /* Light background for contrast */
 }
 
 .rules h2 {
@@ -104,12 +141,16 @@
   background-color: #f2f2f2;
   padding: 10px;
   text-align: center;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .dark {
   background-color: #333;
   color: white;
 }
+
+
+.
 
 .dark .cell {
   border: 2px solid white;
