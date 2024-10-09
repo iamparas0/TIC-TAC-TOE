@@ -3,8 +3,8 @@ import './App.css';
 
 // Import audio files
 import backgroundMusic from './background2.mp3';
-import clickXSoundFile from './clickX.mp3';
-import clickOSoundFile from './clickO.mp3';
+import clickXSoundFile from './clickX.wav';
+import clickOSoundFile from './clickO.wav';
 
 const initialBoard = Array(9).fill(null);
 
