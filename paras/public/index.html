@@ -23,20 +23,20 @@
       }
 
       .follow-us {
-          background-color: #f4f4f4;
-          padding: 20px;
+          background-color: #58ed64;
+          padding: 8px;
           text-align: center;
           margin-top: auto;
       }
 
-      .follow-us h2 {
-          color: grey; /* Grey color for the heading */
-          font-size: 28px; /* Increased size for the heading */
+      .follow-us h1 {
+          color: rgb(255, 255, 255); /* Grey color for the heading */
+          font-size: 40px; /* Increased size for the heading */
           margin-bottom: 15px; /* Space between heading and icons */
       }
 
       .follow-us a {
-          margin: 0 15px;
+          margin: 0 10px; /* Reduced margin for better spacing */
           color: grey; /* Grey color for icons */
           text-decoration: none;
       }
@@ -51,8 +51,8 @@
       }
 
       .follow-us a img {
-          width: 50px; /* Set logo size */
-          height: 50px;
+          width: 30px; /* Reduced icon size */
+          height: 30px; /* Adjusted height */
           filter: grayscale(100%); /* Grey color for icons */
           transition: filter 0.3s; /* Smooth transition effect */
       }
@@ -60,22 +60,20 @@
       .follow-us a:hover img {
           filter: grayscale(0%); /* Color on hover */
       }
+
+      @media (max-width: 600px) {
+          .follow-us a img {
+              width: 25px; /* Smaller icons for smaller screens */
+              height: 25px; /* Adjusted height */
+          }
+
+          .follow-us h1 {
+              font-size: 30px; /* Smaller heading for smaller screens */
+          }
+      }
   </style>
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
     <title>TIC TAC TOE</title>
   </head>
   <body>
@@ -83,7 +81,6 @@
     <div id="root"></div>
 
       <div class="follow-us">
-          <h2>Follow Us</h2>
           <a href="mailto:pearsparas@gmail.com" target="_blank">
               <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email Logo" />
           </a>
@@ -97,17 +94,6 @@
               <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram Logo" />
           </a>
       </div>
-    
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
 
   </body>
 </html>
