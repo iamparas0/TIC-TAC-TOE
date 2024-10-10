@@ -9,6 +9,7 @@ const App = () => {
   const [currentPlayer, setCurrentPlayer] = useState('X');
   const [winner, setWinner] = useState(null);
   const [draw, setDraw] = useState(false);
+  const [theme, setTheme] = useState('system');
   const [isDarkMode, setIsDarkMode] = useState(false);
 
 
@@ -26,7 +27,30 @@ const App = () => {
 
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [gameMode, setGameMode] = useState(null); // 'multiplayer' or 'ai'
+  const [gameMode, setGameMode] = useState(null);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') || 'system';
+    setTheme(savedTheme);
+    applyTheme(savedTheme);
+  }, []);
+
+  const applyTheme = (selectedTheme) => {
+    if (selectedTheme === 'dark') {
+      setIsDarkMode(true);
+    } else if (selectedTheme === 'light') {
+      setIsDarkMode(false);
+    } else {
+      const systemDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setIsDarkMode(systemDarkMode);
+    }
+  };
+
+  const handleThemeChange = (selectedTheme) => {
+    setTheme(selectedTheme);
+    localStorage.setItem('theme', selectedTheme);
+    applyTheme(selectedTheme);
+  };
 
   const handleCellClick = (index) => {
     if (board[index] || winner || draw) return;
@@ -46,7 +70,6 @@ const App = () => {
       [0, 3, 6], [1, 4, 7], [2, 5, 8],
       [0, 4, 8], [2, 4, 6]
     ];
-
     for (let combination of winningCombinations) {
       const [a, b, c] = combination;
       if (board[a] === player && board[b] === player && board[c] === player) {
@@ -104,8 +127,6 @@ const App = () => {
     );
   };
 
-
-
   const toggleTheme = () => {
     setIsDarkMode((prevMode) => !prevMode);
   };
@@ -114,9 +135,7 @@ const App = () => {
     const handleMouseMove = (event) => {
       setMousePosition({ x: event.clientX, y: event.clientY });
     };
-
     window.addEventListener('mousemove', handleMouseMove);
-
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
@@ -136,10 +155,8 @@ const App = () => {
       if (cell === null) acc.push(index);
       return acc;
     }, []);
-
     let bestScore = -Infinity;
     let bestMove;
-
     for (let move of availableMoves) {
       const newBoard = [...board];
       newBoard[move] = 'O';
@@ -149,7 +166,6 @@ const App = () => {
         bestMove = move;
       }
     }
-
     return bestMove;
   };
 
@@ -158,7 +174,6 @@ const App = () => {
     if (result !== null) {
       return result;
     }
-
     if (isMaximizing) {
       let bestScore = -Infinity;
       for (let i = 0; i < 9; i++) {
@@ -216,10 +231,26 @@ const App = () => {
       <div className={`app ${isDarkMode ? 'dark' : ''}`}>
         <div className="header">
           <h1 className="title">Tic Tac Toe</h1>
-          <label className="toggle">
-            <input type="checkbox" checked={isDarkMode} onChange={toggleTheme} />
-            <span className="slider"></span>
-          </label>
+          <div className="theme-toggle">
+            <button 
+              className={`theme-button ${theme === 'system' ? 'active' : ''}`} 
+              onClick={() => handleThemeChange('system')}
+            >
+              <span role="img" aria-label="System">💻</span>
+            </button>
+            <button 
+              className={`theme-button ${theme === 'light' ? 'active' : ''}`} 
+              onClick={() => handleThemeChange('light')}
+            >
+              <span role="img" aria-label="Light">☀️</span>
+            </button>
+            <button 
+              className={`theme-button ${theme === 'dark' ? 'active' : ''}`} 
+              onClick={() => handleThemeChange('dark')}
+            >
+              <span role="img" aria-label="Dark">🌙</span>
+            </button>
+          </div>
         </div>
         <div className="mode-selection">
           <h2>Choose Game Mode</h2>
@@ -235,20 +266,33 @@ const App = () => {
     <div className={`app ${isDarkMode ? 'dark' : ''}`}>
       <div className="header">
         <h1 className="title">Tic Tac Toe</h1>
-        <label className="toggle">
-          <input type="checkbox" checked={isDarkMode} onChange={toggleTheme} />
-          <span className="slider"></span>
-        </label>
+        <div className="theme-toggle">
+          <button 
+            className={`theme-button ${theme === 'system' ? 'active' : ''}`} 
+            onClick={() => handleThemeChange('system')}
+          >
+            <span role="img" aria-label="System">💻</span>
+          </button>
+          <button 
+            className={`theme-button ${theme === 'light' ? 'active' : ''}`} 
+            onClick={() => handleThemeChange('light')}
+          >
+            <span role="img" aria-label="Light">☀️</span>
+          </button>
+          <button 
+            className={`theme-button ${theme === 'dark' ? 'active' : ''}`} 
+            onClick={() => handleThemeChange('dark')}
+          >
+            <span role="img" aria-label="Dark">🌙</span>
+          </button>
+        </div>
       </div>
-
       <button className="back-button" onClick={handleBackButton}>
         ← Back to Mode Selection
       </button>
-
       <div className="board">
         {board.map((cell, index) => renderCell(index))}
       </div>
-
       {winner && (
         <div className="winner-message">
           <p>Player {winner} wins!</p>
@@ -279,7 +323,6 @@ const App = () => {
           <button onClick={resetGame}>Restart</button>
         </div>
       )}
-
       <div className="rules-card">
 >
         <h2>Rules</h2>
@@ -290,11 +333,15 @@ const App = () => {
         </ul>
       </div>
 
+      <Sparkle mousePosition={mousePosition} />
+
+
       <footer className="footer">
         <p>&copy; 2023 TIC TAC TOE. All rights reserved to Paras Vishwakarma.</p>
       </footer>
 
       <Sparkle x={mousePosition.x} y={mousePosition.y} />
+
     </div>
   );
 };
