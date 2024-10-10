@@ -241,6 +241,77 @@
   text-decoration: underline;
 }
 
+
+
+/* Winner Counter Styles */
+.winner-counter {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f0f0f0; /* Light background for the counter */
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333; /* Dark text color */
+  border: 2px solid #ccc; /* Outer border for the winner counter */
+  width: 300px;
+  margin: 20px auto; /* Center it horizontally */
+}
+
+.dark .winner-counter {
+  background-color: #444; /* Dark background for dark mode */
+  color: #f9f9f9; /* Light text color in dark mode */
+  border-color: #888; /* Border color in dark mode */
+}
+
+/* Individual Winner Box */
+.winner-counter div {
+  flex: 1; /* Make both sides equal width */
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid #ccc; /* Border around each winner box */
+  margin: 0 10px; /* Space between the two winner boxes */
+  background-color: #e0e0e0; /* Background for each winner box */
+  transition: background-color 0.3s ease;
+}
+
+.dark .winner-counter div {
+  background-color: #555; /* Dark background for each winner box */
+  border-color: #888; /* Border color in dark mode */
+}
+
+/* Highlight the current winner */
+.winner-highlight {
+  background-color: limegreen;
+  color: white;
+  animation: highlight 1.5s infinite alternate;
+}
+
+@keyframes highlight {
+  0% {
+    background-color: limegreen;
+    color: white;
+  }
+  100% {
+    background-color: lightgreen;
+    color: black;
+  }
+}
+
+/* Adjust the layout for smaller screens */
+@media (max-width: 600px) {
+  .winner-counter {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .winner-counter div {
+    margin: 10px 0; /* Vertical spacing for smaller screens */
+  }
+}
+
 .mode-selection {
   display: flex;
   flex-direction: column;
@@ -293,6 +364,7 @@
 .dark .back-button:hover {
   background-color: #1e88e5;
 }
+
 
 /* New theme toggle styles */
 .theme-toggle {
