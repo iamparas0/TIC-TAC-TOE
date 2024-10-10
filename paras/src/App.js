@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Sparkle from './Sparkle';
+import useScoreTracker from './ScoreTracker';
 
 const initialBoard = Array(9).fill(null);
 
@@ -11,23 +12,17 @@ const App = () => {
   const [draw, setDraw] = useState(false);
   const [theme, setTheme] = useState('system');
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [gameMode, setGameMode] = useState(null);
 
 
-  // States to keep track of scores for each player
-  const [scorePlayerX, setScorePlayerX] = useState(0);
-  const [scorePlayerO, setScorePlayerO] = useState(0);
+//initialize score trackers for both players using custom hook
+  const playerXScore = useScoreTracker();
+  const playerOScore = useScoreTracker();
 
   // States to store the highest scores, starting from 0 on page refresh
   const [highestScorePlayerX, setHighestScorePlayerX] = useState(0);
   const [highestScorePlayerO, setHighestScorePlayerO] = useState(0);
-
-  // Handle click on a cell
-  const handleCellClick = (index) => {
-    if (board[index] || winner) return;
-
-
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [gameMode, setGameMode] = useState(null);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') || 'system';
@@ -80,11 +75,13 @@ const App = () => {
         setWinner(player);
 
         if (player === 'X') {
-          setXWins(xWins + 1); // Increment X's win count
+          playerXScore.increaseScore(); // Increment X's win count
+          setXWins(xWins+1);
         } else {
-          setOWins(oWins + 1); // Increment O's win count
+          playerOScore.increaseScore()
+          setOWins(oWins+1); // Increment O's win count
         }
-        updateScoreAndHighestScore(player); // Update score and highest score
+        // updateScoreAndHighestScore(player); // Update score and highest score
 
         return;
       }
@@ -95,25 +92,25 @@ const App = () => {
   };
 
   // Update score and highest score
-  const updateScoreAndHighestScore = (player) => {
-    if (player === 'X') {
-      const newScoreX = scorePlayerX + 1; // Increment the score for Player X
-      setScorePlayerX(newScoreX);
+  // const updateScoreAndHighestScore = (player) => {
+  //   if (player === 'X') {
+  //     const newScoreX = playerXScore + 1; // Increment the score for Player X
+  //     setScorePlayerX(newScoreX);
 
-      // Check if the new score is greater than the highest score, and update if needed
-      if (newScoreX > highestScorePlayerX) {
-        setHighestScorePlayerX(newScoreX); // Update highest score
-      }
-    } else if (player === 'O') {
-      const newScoreO = scorePlayerO + 1; // Increment the score for Player O
-      setScorePlayerO(newScoreO);
+  //     // Check if the new score is greater than the highest score, and update if needed
+  //     if (newScoreX > highestScorePlayerX) {
+  //       setHighestScorePlayerX(newScoreX); // Update highest score
+  //     }
+  //   } else if (player === 'O') {
+  //     const newScoreO = scorePlayerO + 1; // Increment the score for Player O
+  //     setScorePlayerO(newScoreO);
 
-      // Check if the new score is greater than the highest score, and update if needed
-      if (newScoreO > highestScorePlayerO) {
-        setHighestScorePlayerO(newScoreO); // Update highest score
-      }
-    }
-  };
+  //     // Check if the new score is greater than the highest score, and update if needed
+  //     if (newScoreO > highestScorePlayerO) {
+  //       setHighestScorePlayerO(newScoreO); // Update highest score
+  //     }
+  //   }
+  // };
 
   // Reset the game but keep the scores intact
   const resetGame = () => {
@@ -124,9 +121,6 @@ const App = () => {
   };
 
   // Toggle theme (dark/light mode)
-  const toggleTheme = () => {
-    setIsDarkMode(prevMode => !prevMode);
-  };
 
   // Render each cell
   const renderCell = (index) => {
@@ -319,33 +313,34 @@ const App = () => {
         ← Back to Mode Selection
       </button>
 
-      <div className="board">
+      {/* <div className="board">
         {board.map((cell, index) => renderCell(index))}
-      </div>
+      </div> */}
       {winner && (
         <div className="winner-message">
           <p>Player {winner} wins!</p>
           <button onClick={resetGame}>Restart</button>
         </div>
       )}
-<
 
+        <div className='board'>
+          {board.map((_,index)=>renderCell(index))}
+        </div>
       {/* Display current scores */}
       <div className="current-scores">
         <h2>Current Scores</h2>
-        <p>Player X: {scorePlayerX}</p>
-        <p>Player O: {scorePlayerO}</p>
+        <p>Player X: {playerXScore.score}</p>
+        <p>Player O: {playerOScore.score}</p>
       </div>
 
       {/* Display the highest scores */}
       <div className="highest-scores">
         <h2>Highest Scores</h2>
-        <p>Player X: {highestScorePlayerX}</p>
-        <p>Player O: {highestScorePlayerO}</p>
+        <p>Player X: {highestScorePlayerX.highScore}</p>
+        <p>Player O: {highestScorePlayerO.highScore}</p>
       </div>
 
       <div className="rules">
-=
       {draw && (
         <div className="draw-message">
           <p>It's a draw!</p>
@@ -353,7 +348,7 @@ const App = () => {
         </div>
       )}
       <div className="rules-card">
->
+
         <h2>Rules</h2>
         <ul>
           <li>Two players take turns marking cells in a 3x3 grid.</li>
@@ -371,6 +366,7 @@ const App = () => {
 
       <Sparkle x={mousePosition.x} y={mousePosition.y} />
 
+    </div>
     </div>
   );
 };
