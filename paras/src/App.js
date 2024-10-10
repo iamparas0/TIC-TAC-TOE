@@ -52,10 +52,6 @@ const App = () => {
     applyTheme(selectedTheme);
   };
 
-  // State variables for win count
-  const [xWins, setXWins] = useState(0);
-  const [oWins, setOWins] = useState(0);
-
   const handleCellClick = (index) => {
     if (board[index] || winner || draw) return;
 
@@ -78,14 +74,7 @@ const App = () => {
       const [a, b, c] = combination;
       if (board[a] === player && board[b] === player && board[c] === player) {
         setWinner(player);
-
-        if (player === 'X') {
-          setXWins(xWins + 1); // Increment X's win count
-        } else {
-          setOWins(oWins + 1); // Increment O's win count
-        }
         updateScoreAndHighestScore(player); // Update score and highest score
-
         return;
       }
     }
@@ -298,27 +287,9 @@ const App = () => {
           </button>
         </div>
       </div>
-
-
-      <div className="winner-counter">
-        <div className={winner === 'X' ? 'winner-highlight' : ''}>
-          X Wins: {xWins}
-        </div>
-        <div className={winner === 'O' ? 'winner-highlight' : ''}>
-          O Wins: {oWins}
-        </div>
-      </div>
-
       <button className="back-button" onClick={handleBackButton}>
         ← Back to Mode Selection
       </button>
-
-
-
-      <button className="back-button" onClick={handleBackButton}>
-        ← Back to Mode Selection
-      </button>
-
       <div className="board">
         {board.map((cell, index) => renderCell(index))}
       </div>
