@@ -33,7 +33,7 @@
   padding: 20px;
   border-radius: 15px;
   background: linear-gradient(120deg, #0e2e4e, #1f4679);
-  transition: background 0.5s, transform 0.5s ease;
+  transition: background-color 0.5s, transform 0.5s ease;
 }
 
 .cell {
@@ -60,7 +60,12 @@
 }
 
 .cell.o {
-  color: red;
+
+ 
+  color: red; /* Specific color for O */
+
+
+
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
