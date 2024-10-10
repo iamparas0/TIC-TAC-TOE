@@ -88,12 +88,6 @@ const App = () => {
     setWinner(null);
     setDraw(false);
   };
-
-  // Toggle theme (dark/light mode)
-  const toggleTheme = () => {
-    setIsDarkMode(prevMode => !prevMode);
-  };
-
   // Render each cell
   const renderCell = (index) => {
     const value = board[index];
@@ -109,6 +103,7 @@ const App = () => {
   const toggleTheme = () => {
     setIsDarkMode((prevMode) => !prevMode);
   };
+
 
   useEffect(() => {
     const handleMouseMove = (event) => {
@@ -229,25 +224,24 @@ const App = () => {
       </div>
     );
   }
-
-
-  return (
     <div className={`app ${isDarkMode ? 'dark' : ''}`}>
-      <div className="header">
-        <h1 className="title">Tic Tac Toe</h1>
+       <div className="header">
+          <h1 className="title">Tic Tac Toe</h1>
         <label className="toggle">
           <input type="checkbox" checked={isDarkMode} onChange={toggleTheme} />
           <span className="slider"></span>
         </label>
-      </div>
-
+       </div>
+    
       <button className="back-button" onClick={handleBackButton}>
         ← Back to Mode Selection
       </button>
 
       <div className="board">
-        {board.map((cell, index) => renderCell(index))}
+       {board.map((cell, index) => renderCell(index))}
+       </div>
       </div>
+
 
       {winner && (
         <div className="winner-message">
@@ -255,48 +249,47 @@ const App = () => {
           <button onClick={resetGame}>Restart</button>
         </div>
       )}
-<
 
-      {/* Display current scores */}
-      <div className="current-scores">
-        <h2>Current Scores</h2>
-        <p>Player X: {scorePlayerX}</p>
-        <p>Player O: {scorePlayerO}</p>
-      </div>
+    
+   //   <div className="current-scores">
+   //     <h2>Current Scores</h2>
+   //     <p>Player X: {scorePlayerX}</p>
+    //    <p>Player O: {scorePlayerO}</p>
+   //   </div>
 
-      {/* Display the highest scores */}
-      <div className="highest-scores">
-        <h2>Highest Scores</h2>
-        <p>Player X: {highestScorePlayerX}</p>
-        <p>Player O: {highestScorePlayerO}</p>
-      </div>
+     
+  //    <div className="highest-scores">
+   //     <h2>Highest Scores</h2>
+   //     <p>Player X: {highestScorePlayerX}</p>
+   //     <p>Player O: {highestScorePlayerO}</p>
+   //   </div>
 
-      <div className="rules">
-=
-      {draw && (
-        <div className="draw-message">
-          <p>It's a draw!</p>
-          <button onClick={resetGame}>Restart</button>
-        </div>
-      )}
+    //  <div className="rules">
+    //  {draw && (
+   //     <div className="draw-message">
+     //     <p>It's a draw!</p>
+     //     <button onClick={resetGame}>Restart</button>
+      //  </div>
+     // )}
 
-      <div className="rules-card">
->
-        <h2>Rules</h2>
-        <ul>
-          <li>Two players take turns marking cells in a 3x3 grid.</li>
-          <li>The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row wins the game.</li>
-          <li>If all cells are filled and no player has three marks in a row, the game is a draw.</li>
-        </ul>
-      </div>
+     // <div className="rules-card">
 
-      <footer className="footer">
-        <p>&copy; 2023 TIC TAC TOE. All rights reserved to Paras Vishwakarma.</p>
-      </footer>
+       // <h2>Rules</h2>
+      //  <ul>
+       //   <li>Two players take turns marking cells in a 3x3 grid.</li>
+       //   <li>The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row wins the game.</li>
+         // <li>If all cells are filled and no player has three marks in a row, the game is a draw.</li>
+        //</ul>
+     // </div>
 
-      <Sparkle x={mousePosition.x} y={mousePosition.y} />
-    </div>
-  );
+     // <footer className="footer">
+    //    <p>&copy; 2023 TIC TAC TOE. All rights reserved to Paras Vishwakarma.</p>
+//      </footer>
+
+  //    <Sparkle x={mousePosition.x} y={mousePosition.y} />
+    //</div>
+  }
+
 };
 
-export default App;
+
