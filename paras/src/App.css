@@ -100,6 +100,87 @@
   font-weight: bold;
   color: green;
 }
+/* Player Name Entry */
+.player-input {
+  margin: 10px;
+}
+
+.player-input input {
+  padding: 5px;
+  margin: 5px;
+  font-size: 1rem;
+  width: 200px;
+  border: 2px solid lightblue;
+  border-radius: 4px;
+}
+
+.player-input button {
+  margin-top: 20px;
+  padding: 5px 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.player-input button:hover {
+  background-color: #45a049;
+}
+
+/* Winner Message */
+.winner-message {
+  margin-top: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff5733;
+}
+
+.winner-message button {
+  margin: 10px;
+  padding: 8px 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.winner-message button:hover {
+  background-color: #1976D2;
+}
+
+/* Final Winner Message */
+.final-winner-message {
+  margin-top: 30px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #28a745;
+}
+
+/* Result Board */
+.result-board {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+}
+
+.result-board h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.result-board p {
+  font-size: 1.4rem;
+  margin: 5px 0;
+  font-weight: bold;
+}
 
 .rules {
   margin-top: 20px;
@@ -141,6 +222,17 @@
 
 .dark .cell {
   border: 2px solid white;
+}
+.dark .result-board{
+  background-color: #444;
+  color:#fff;
+}
+.dark .result-board h2 {
+  color: #fff; 
+}
+
+.dark .result-board p {
+  color: #ddd; 
 }
 
 .winning-cell {
