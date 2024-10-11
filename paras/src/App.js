@@ -390,7 +390,8 @@ const startGame = () => {
       <button className="back-button" onClick={handleBackButton}>
         ← Back to Mode Selection
       </button>
-
+<>
+          <div>
       <div className="board">
 
         {board.map((cell, index) => (
