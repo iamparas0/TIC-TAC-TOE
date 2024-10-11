@@ -625,9 +625,10 @@ const startGame = () => {
       <Sparkle mousePosition={mousePosition} />
 
 
-      <footer className="footer">
-        <p>&copy; 2023 TIC TAC TOE. All rights reserved to Paras Vishwakarma.</p>
-      </footer>
+     <footer className="footer">
+        <p>&copy; 2024 TIC TAC TOE. Crafted with passion by Paras Vishwakarma. All rights reserved.</p>
+     </footer>
+
 
 
       <Sparkle x={mousePosition.x} y={mousePosition.y} />
