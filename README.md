@@ -20,7 +20,7 @@ git clone https://github.com/iamparas0/TIC-TAC-TOE.git
 
 2. Navigate to the project directory:
 ```bash
-cd TIC-TAC-TOE
+cd TIC-TAC-TOE/paras
 ```
 
 3. Install dependencies:
@@ -30,7 +30,7 @@ npm install
 
 4. Run the game:
 ```bash
-npm start
+npm run start
 ```
 
 5. Open your browser and visit `http://localhost:3000` to play the game!
