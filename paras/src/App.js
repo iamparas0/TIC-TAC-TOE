@@ -407,7 +407,7 @@ const startGame = () => {
 
        {board.map((cell, index) => renderCell(index))}
        </div>
-      </div>
+         </>
 
 
 
