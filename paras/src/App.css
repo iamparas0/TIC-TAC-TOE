@@ -55,6 +55,10 @@
   transform: scale(1.05);
 }
 
+.cell.clicked {
+  background-color: #f998fe; /* Changes the color of the boxes on click */
+}
+
 .cell.x {
   color: blue;
 }
@@ -63,8 +67,6 @@
 
  
   color: red; /* Specific color for O */
-
-
 
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -92,6 +94,13 @@
 .button:hover {
   background-color: deepskyblue;
   transform: scale(1.05);
+
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background-color: #2196F3;
+  transform: scale(1.1);
 }
 
 .winner-message {
