@@ -1,46 +1,106 @@
-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+body {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
 
+#root {
+  flex: 1;
+}
+
+.follow-us {
+  background-color: #58ed64;
+  padding: 8px;
+  text-align: center;
+  margin-top: auto;
+}
+
+.follow-us h1 {
+  color: #fff;
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.follow-us a {
+  margin: 0 10px;
+  color: grey;
+  text-decoration: none;
+}
+
+.follow-us a:hover {
+  color: #007bff;
+}
+
+.follow-us a:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+.follow-us a img {
+  width: 30px;
+  height: 30px;
+  filter: grayscale(100%);
+  transition: filter 0.3s;
+}
+
+.follow-us a:hover img {
+  filter: grayscale(0%);
+}
+
+@media (max-width: 600px) {
+  .follow-us a img {
+    width: 25px;
+    height: 25px;
   }
-  
-  .footer-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+  .follow-us h1 {
+    font-size: 30px;
   }
-  
-  .social-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .social-links li {
-    margin: 0 10px;
-  }
-  
-  .social-links a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  
-  .social-links a:hover {
-    color: #ccc;
-  }
-  
-  .fa {
-    font-size: 24px;
-  }
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  margin-top: auto;
+}
+
+.footer-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.social-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.social-links li {
+  margin: 0 10px;
+}
+
+.social-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.social-links a:hover {
+  color: #ccc;
+}
+
+.fa {
+  font-size: 24px;
+}
