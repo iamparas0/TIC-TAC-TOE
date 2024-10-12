@@ -3,7 +3,7 @@ import "./App.css";
 import Sparkle from "./Sparkle";
 
 const initialBoard = Array(9).fill(null);
-
+const winSound = new Audio('win-sound1.wav'); 
 const App = () => {
   const [board, setBoard] = useState(initialBoard);
   const [currentPlayer, setCurrentPlayer] = useState("X");
@@ -96,6 +96,11 @@ const startGame = () => {
 
   };
 
+     // Function to play the win sound
+     const playWinSound = () => {
+      winSound.play(); // Play the winning sound effect when a player wins
+    };
+
   // Check if there's a winner
   const checkWinner = (board, player) => {
     const winningCombinations = [
@@ -113,12 +118,13 @@ const startGame = () => {
       if (board[a] === player && board[b] === player && board[c] === player) {
 
         setWinner(player === "X" ? player1 : player2);
+        winSound.play();
         return;
       }
     }
     if (board.every((cell) => cell !== null) && !winner) {
-      setDraw(true);
-
+        setDraw(true);
+        winSound.play();
 
         setWinner(player === 'X' ? playerX || "X": playerO || "O");
         if (player === 'X') {
@@ -636,8 +642,5 @@ const startGame = () => {
   );
 };
 
-export default App;
-
-
-
+export default App; 
 
