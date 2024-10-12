@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
-import Sparkle from './Sparkle';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import Sparkle from "./Sparkle";
 
 const initialBoard = Array(9).fill(null);
 
 const App = () => {
   const [board, setBoard] = useState(initialBoard);
-  const [currentPlayer, setCurrentPlayer] = useState('X');
+  const [currentPlayer, setCurrentPlayer] = useState("X");
   const [winner, setWinner] = useState(null);
 
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -42,7 +42,15 @@ const startGame = () => {
 
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [gameMode, setGameMode] = useState(null);
+
+  const [gameMode, setGameMode] = useState(null); // 'multiplayer' or 'ai'
+  const [player1, setPlayer1] = useState("Player 1");
+  const [player2, setPlayer2] = useState("Player 2");
+  const [player1Name, setPlayer1Name] = useState("");
+  const [player2Name, setPlayer2Name] = useState("");
+  const [isPlayerSetupComplete, setIsPlayerSetupComplete] = useState(false);
+
+  
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') || 'system';
@@ -71,6 +79,7 @@ const startGame = () => {
   const [xWins, setXWins] = useState(0);
   const [oWins, setOWins] = useState(0);
 
+
   const handleCellClick = (index) => {
     if (board[index] || winner || draw) return;
 
@@ -80,19 +89,36 @@ const startGame = () => {
     setBoard(newBoard);
     checkWinner(newBoard, currentPlayer);
 
+    
+
+
     setCurrentPlayer(currentPlayer === 'X' ? 'O' : 'X');
+
   };
 
   // Check if there's a winner
   const checkWinner = (board, player) => {
     const winningCombinations = [
-      [0, 1, 2], [3, 4, 5], [6, 7, 8],
-      [0, 3, 6], [1, 4, 7], [2, 5, 8],
-      [0, 4, 8], [2, 4, 6]
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
     ];
     for (let combination of winningCombinations) {
       const [a, b, c] = combination;
       if (board[a] === player && board[b] === player && board[c] === player) {
+
+        setWinner(player === "X" ? player1 : player2);
+        return;
+      }
+    }
+    if (board.every((cell) => cell !== null) && !winner) {
+      setDraw(true);
+
 
         setWinner(player === 'X' ? playerX || "X": playerO || "O");
         if (player === 'X') {
@@ -134,13 +160,14 @@ const startGame = () => {
       if (newScoreO > highestScorePlayerO) {
         setHighestScorePlayerO(newScoreO); // Update highest score
       }
+
     }
   };
 
   // Reset the game but keep the scores intact
   const resetGame = () => {
     setBoard(initialBoard);
-    setCurrentPlayer('X');
+    setCurrentPlayer("X");
     setWinner(null);
     setFinalWinner(null);
     setPlayerX('Player X');
@@ -186,18 +213,37 @@ const startGame = () => {
   };
 
 
+  const startMultiplayerSetup = () => {
+    setGameMode("multiplayer");
+    setIsPlayerSetupComplete(false);
+  };
+
+  const confirmPlayers = () => {
+    setPlayer1(player1Name || "Player 1");
+    setPlayer2(player2Name || "Player 2");
+    setIsPlayerSetupComplete(true);
+  };
+
+
+
   useEffect(() => {
     const handleMouseMove = (event) => {
       setMousePosition({ x: event.clientX, y: event.clientY });
     };
-    window.addEventListener('mousemove', handleMouseMove);
+
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+
+    
+
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 
   useEffect(() => {
-    if (gameMode === 'ai' && currentPlayer === 'O' && !winner && !draw) {
+    if (gameMode === "ai" && currentPlayer === "O" && !winner && !draw) {
       const aiMove = getBestMove(board);
       setTimeout(() => {
         handleCellClick(aiMove);
@@ -214,7 +260,7 @@ const startGame = () => {
     let bestMove;
     for (let move of availableMoves) {
       const newBoard = [...board];
-      newBoard[move] = 'O';
+      newBoard[move] = "O";
       const score = minimax(newBoard, 0, false);
       if (score > bestScore) {
         bestScore = score;
@@ -233,7 +279,7 @@ const startGame = () => {
       let bestScore = -Infinity;
       for (let i = 0; i < 9; i++) {
         if (board[i] === null) {
-          board[i] = 'O';
+          board[i] = "O";
           const score = minimax(board, depth + 1, false);
           board[i] = null;
           bestScore = Math.max(score, bestScore);
@@ -244,7 +290,7 @@ const startGame = () => {
       let bestScore = Infinity;
       for (let i = 0; i < 9; i++) {
         if (board[i] === null) {
-          board[i] = 'X';
+          board[i] = "X";
           const score = minimax(board, depth + 1, true);
           board[i] = null;
           bestScore = Math.min(score, bestScore);
@@ -255,17 +301,22 @@ const startGame = () => {
   };
 
   const checkGameEnd = (board) => {
-    if (calculateWinner(board) === 'X') return -1;
-    if (calculateWinner(board) === 'O') return 1;
-    if (board.every(cell => cell !== null)) return 0;
+    if (calculateWinner(board) === "X") return -1;
+    if (calculateWinner(board) === "O") return 1;
+    if (board.every((cell) => cell !== null)) return 0;
     return null;
   };
 
   const calculateWinner = (board) => {
     const lines = [
-      [0, 1, 2], [3, 4, 5], [6, 7, 8],
-      [0, 3, 6], [1, 4, 7], [2, 5, 8],
-      [0, 4, 8], [2, 4, 6]
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
     ];
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
@@ -283,9 +334,20 @@ const startGame = () => {
 
   if (gameMode === null) {
     return (
-      <div className={`app ${isDarkMode ? 'dark' : ''}`}>
+      <div className={`app ${isDarkMode ? "dark" : ""}`}>
         <div className="header">
           <h1 className="title">Tic Tac Toe</h1>
+
+          <label className="toggle">
+            <input
+              type="checkbox"
+              checked={isDarkMode}
+              onChange={toggleTheme}
+            />
+            <span className="slider"></span>
+          </label>
+
+
           <div className="theme-toggle">
             <button 
               className={`theme-button ${theme === 'system' ? 'active' : ''}`} 
@@ -306,20 +368,54 @@ const startGame = () => {
               <span role="img" aria-label="Dark">🌙</span>
             </button>
           </div>
+
         </div>
         <div className="mode-selection">
-          <h2>Choose Game Mode</h2>
-          <button onClick={() => setGameMode('multiplayer')}>Multiplayer</button>
-          <button onClick={() => setGameMode('ai')}>Play against AI</button>
+          <button onClick={startMultiplayerSetup}>Start Multiplayer</button>
+          <button onClick={() => setGameMode("ai")}>Play against AI</button>
         </div>
       </div>
     );
   }
+
+  if (gameMode === "multiplayer" && !isPlayerSetupComplete) {
+    return (
+      <div className={`app ${isDarkMode ? "dark" : ""}`}>
+        <div className="header">
+          <h1 className="title">Tic Tac Toe</h1>
+        </div>
+        <div className="player-setup">
+          <h2>Enter Player Names</h2>
+          <input
+            type="text"
+            placeholder="Player 1 Name"
+            value={player1Name}
+            onChange={(e) => setPlayer1Name(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Player 2 Name"
+            value={player2Name}
+            onChange={(e) => setPlayer2Name(e.target.value)}
+          />
+          <button onClick={confirmPlayers}>Confirm Players</button>
+        </div>
+      </div>
+    );
+  }
+
+
+  return (
+    <div className={`app ${isDarkMode ? "dark" : ""}`}>
+      <div className="header">
+        <h1 className="title">Tic Tac Toe</h1>
+
     <div className={`app ${isDarkMode ? 'dark' : ''}`}>
 
 
        <div className="header">
           <h1 className="title">Tic Tac Toe</h1>
+
         <label className="toggle">
           <input type="checkbox" checked={isDarkMode} onChange={toggleTheme} />
           <span className="slider"></span>
@@ -390,7 +486,8 @@ const startGame = () => {
       <button className="back-button" onClick={handleBackButton}>
         ← Back to Mode Selection
       </button>
-
+<>
+          <div>
       <div className="board">
 
         {board.map((cell, index) => (
@@ -407,7 +504,7 @@ const startGame = () => {
 
        {board.map((cell, index) => renderCell(index))}
        </div>
-      </div>
+         </>
 
 
 
@@ -417,6 +514,9 @@ const startGame = () => {
       {winner && (
         <div className="winner-message">
           <p>{winner} wins!</p>
+
+          <button onClick={resetGame}>Restart</button>
+
           <button onClick = {continueGame}>Continue</button>
           <button onClick={handleRestart}>Restart</button>
         </div>
@@ -425,6 +525,7 @@ const startGame = () => {
       {finalWinner && (
         <div className="final-winner-message">
           <p>{finalWinner}</p>
+
         </div>
       )}
       <div className="result-board">
@@ -508,10 +609,18 @@ const startGame = () => {
         <h2>Rules</h2>
         <ul>
           <li>Two players take turns marking cells in a 3x3 grid.</li>
-          <li>The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row wins the game.</li>
-          <li>If all cells are filled and no player has three marks in a row, the game is a draw.</li>
+          <li>
+            The player who succeeds in placing three of their marks in a
+            horizontal, vertical, or diagonal row wins the game.
+          </li>
+          <li>
+            If all cells are filled and no player has three marks in a row, the
+            game is a draw.
+          </li>
         </ul>
       </div>
+
+
 
       <Sparkle mousePosition={mousePosition} />
 
@@ -520,6 +629,7 @@ const startGame = () => {
         <p>&copy; 2023 TIC TAC TOE. All rights reserved to Paras Vishwakarma.</p>
       </footer>
 
+
       <Sparkle x={mousePosition.x} y={mousePosition.y} />
 
     </div>
@@ -527,4 +637,7 @@ const startGame = () => {
 };
 
 export default App;
+
+
+
 

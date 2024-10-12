@@ -92,6 +92,52 @@
   transform: translateY(-5px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
+/* Specific styling for input text boxes */
+.player-setup input[type="text"] {
+  width: 250px;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+  border: 2px solid #333;
+  border-radius: 8px;
+  background-color: var(--input-background);
+  color: var(--input-text-color);
+  transition: border-color 0.3s;
+}
+
+/* Change border color on focus */
+.player-setup input[type="text"]:focus {
+  border-color: #007bff; /* Highlight color when focused */
+  outline: none;
+}
+
+/* Button styling */
+.player-setup button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+/* Dark mode styles */
+.dark {
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --input-background: #1e1e1e;
+  --input-text-color: #ffffff;
+}
+
+/* Light mode styles */
+.light {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --input-background: #f0f0f0;
+  --input-text-color: #000000;
+}
 
 .button {
   margin: 10px 20px;
@@ -481,8 +527,6 @@
   background-color: #1e88e5;
 }
 
-
-/*theme toggle styles */
 .theme-toggle {
   display: inline-flex;
   background-color: #2c2c2c;
@@ -509,3 +553,4 @@
 .theme-button span {
   font-size: 18px;
 }
+
