@@ -548,3 +548,37 @@
   font-size: 18px;
 }
 
+.current-scores,.highest-scores{
+  background-color: #28a796;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 15px 0;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.current-scores:hover, .highest-scores:hover{
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.current-scores h2, .highest-scores h2{
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #fff;
+  font-family: 'Montserrat',sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.current-scores p, .highest-scores p{
+  font-size: 18px;
+  margin: 5px 0;
+  color: #ffdd57;
+  font-family: 'Poppins',sans-serif;
+}
+.highest-scores p{
+  font-weight: bold;
+  color: #d9534f;
+}
+
+
+
