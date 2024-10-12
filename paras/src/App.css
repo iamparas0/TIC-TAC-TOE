@@ -33,7 +33,7 @@
   padding: 20px;
   border-radius: 15px;
   background: linear-gradient(120deg, #0e2e4e, #1f4679);
-  transition: background 0.5s, transform 0.5s ease;
+  transition: background-color 0.5s, transform 0.5s ease;
 }
 
 .cell {
@@ -55,12 +55,19 @@
   transform: scale(1.05);
 }
 
+.cell.clicked {
+  background-color: #f998fe; /* Changes the color of the boxes on click */
+}
+
 .cell.x {
   color: blue;
 }
 
 .cell.o {
-  color: red;
+
+ 
+  color: red; /* Specific color for O */
+
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
@@ -70,6 +77,52 @@
   background: linear-gradient(120deg, #0d2430, #4c7daf);
   transform: translateY(-5px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+/* Specific styling for input text boxes */
+.player-setup input[type="text"] {
+  width: 250px;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+  border: 2px solid #333;
+  border-radius: 8px;
+  background-color: var(--input-background);
+  color: var(--input-text-color);
+  transition: border-color 0.3s;
+}
+
+/* Change border color on focus */
+.player-setup input[type="text"]:focus {
+  border-color: #007bff; /* Highlight color when focused */
+  outline: none;
+}
+
+/* Button styling */
+.player-setup button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+/* Dark mode styles */
+.dark {
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --input-background: #1e1e1e;
+  --input-text-color: #ffffff;
+}
+
+/* Light mode styles */
+.light {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --input-background: #f0f0f0;
+  --input-text-color: #000000;
 }
 
 .button {
@@ -87,6 +140,13 @@
 .button:hover {
   background-color: deepskyblue;
   transform: scale(1.05);
+
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background-color: #2196F3;
+  transform: scale(1.1);
 }
 
 .winner-message {
@@ -94,6 +154,87 @@
   font-size: 20px;
   font-weight: bold;
   color: green;
+}
+/* Player Name Entry */
+.player-input {
+  margin: 10px;
+}
+
+.player-input input {
+  padding: 5px;
+  margin: 5px;
+  font-size: 1rem;
+  width: 200px;
+  border: 2px solid lightblue;
+  border-radius: 4px;
+}
+
+.player-input button {
+  margin-top: 20px;
+  padding: 5px 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.player-input button:hover {
+  background-color: #45a049;
+}
+
+/* Winner Message */
+.winner-message {
+  margin-top: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff5733;
+}
+
+.winner-message button {
+  margin: 10px;
+  padding: 8px 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.winner-message button:hover {
+  background-color: #1976D2;
+}
+
+/* Final Winner Message */
+.final-winner-message {
+  margin-top: 30px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #28a745;
+}
+
+/* Result Board */
+.result-board {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+}
+
+.result-board h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.result-board p {
+  font-size: 1.4rem;
+  margin: 5px 0;
+  font-weight: bold;
 }
 
 .rules {
@@ -136,6 +277,17 @@
 
 .dark .cell {
   border: 2px solid white;
+}
+.dark .result-board{
+  background-color: #444;
+  color:#fff;
+}
+.dark .result-board h2 {
+  color: #fff; 
+}
+
+.dark .result-board p {
+  color: #ddd; 
 }
 
 .winning-cell {
@@ -366,6 +518,8 @@
 }
 
 
+
+
 /* New theme toggle styles */
 .theme-toggle {
   display: inline-flex;
@@ -393,6 +547,7 @@
 .theme-button span {
   font-size: 18px;
 }
+
 .current-scores,.highest-scores{
   background-color: #28a796;
   border-radius: 10px;
@@ -424,3 +579,6 @@
   font-weight: bold;
   color: #d9534f;
 }
+
+
+
