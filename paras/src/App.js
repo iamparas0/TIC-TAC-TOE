@@ -682,7 +682,8 @@ const startGame = () => {
 
 
       <footer className="footer">
-        <p>&copy; 2023 TIC TAC TOE. All rights reserved to Paras Vishwakarma.</p>
+
+        <p>&copy; 2024 TIC TAC TOE. All rights reserved.</p>
       </footer>
 
 
