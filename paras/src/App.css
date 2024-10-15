@@ -1,6 +1,6 @@
 .app {
   text-align: center;
-  background-color: white;
+  background-color:  #f2bfe3;
   color: black;
   min-height: 100vh;
 
@@ -63,7 +63,7 @@
 
 .cell.o {
   color: red; /* Specific color for O */
-=======
+
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
@@ -349,7 +349,7 @@ input:checked + .slider:before {
   background-color: #4CAF50;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 12px;
   transition: background-color 0.3s;
 }
 
