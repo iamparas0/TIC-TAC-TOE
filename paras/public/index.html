@@ -1,131 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <style>
-      body {
-          font-family: 'Poppins', sans-serif;
-          display: flex;
-          flex-direction: column;
-          min-height: 100vh;
-          margin: 0;
-      }
-
-      #root {
-          flex: 1;
-      }
-
-      .follow-us {
-          background-color: #58ed64;
-          padding: 8px;
-          text-align: center;
-          margin-top: auto;
-      }
-
-      .follow-us h1 {
-          color: rgb(255, 255, 255); /* Grey color for the heading */
-          font-size: 40px; /* Increased size for the heading */
-          margin-bottom: 15px; /* Space between heading and icons */
-      }
-
-      .follow-us a {
-          margin: 0 10px; /* Reduced margin for better spacing */
-          color: grey; /* Grey color for icons */
-          text-decoration: none;
-      }
-
-      .follow-us a:hover {
-          color: #007bff; /* Change color on hover */
-      }
-
-      .follow-us a:focus {
-          outline: 2px solid #007bff;
-          outline-offset: 2px;
-      }
-
-      .follow-us a img {
-          width: 30px; /* Reduced icon size */
-          height: 30px; /* Adjusted height */
-          filter: grayscale(100%); /* Grey color for icons */
-          transition: filter 0.3s; /* Smooth transition effect */
-      }
-
-      .follow-us a:hover img {
-          filter: grayscale(0%); /* Color on hover */
-      }
-
-      @media (max-width: 600px) {
-          .follow-us a img {
-              width: 25px; /* Smaller icons for smaller screens */
-              height: 25px; /* Adjusted height */
-          }
-
-          .follow-us h1 {
-              font-size: 30px; /* Smaller heading for smaller screens */
-          }
-      }
-  </style>
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-
+    <meta name="description" content="Web site created using create-react-app" />
 
     <link rel="stylesheet" type="text/css" href="first.css">
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>TIC TAC TOE</title>
-  </head>
-  <body>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        #root {
+            flex: 1;
+        }
+
+        .follow-us {
+            background-color: #58ed64;
+            padding: 8px;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .follow-us h1 {
+            color: #fff;
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .follow-us a {
+            margin: 0 10px;
+            color: grey;
+            text-decoration: none;
+        }
+
+        .follow-us a:hover {
+            color: #007bff;
+        }
+
+        .follow-us a:focus {
+            outline: 2px solid #007bff;
+            outline-offset: 2px;
+        }
+
+        .follow-us a img {
+            width: 30px;
+            height: 30px;
+            filter: grayscale(100%);
+            transition: filter 0.3s;
+        }
+
+        .follow-us a:hover img {
+            filter: grayscale(0%);
+        }
+
+        @media (max-width: 600px) {
+            .follow-us a img {
+                width: 25px;
+                height: 25px;
+            }
+
+            .follow-us h1 {
+                font-size: 30px;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #f8f9fa; /* Added background color for the footer */
+        }
+    </style>
+</head>
+<body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
 
-      <div class="follow-us">
-          <a href="mailto:pearsparas@gmail.com" target="_blank">
-              <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email Logo" />
-          </a>
-          <a href="https://x.com/iamparas0" target="_blank">
-              <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter Logo" />
-          </a>
-          <a href="https://www.linkedin.com/in/iamparas0/" target="_blank">
-              <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Logo" />
-          </a>
-          <a href="https://www.instagram.com/iamparas.0/" target="_blank">
-              <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram Logo" />
-          </a>
-      </div>
+    <div class="follow-us">
+        <h1>Follow Us</h1> <!-- Added heading for clarity -->
+        <a href="mailto:pearsparas@gmail.com">
+            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email Logo" />
+        </a>
+        <a href="https://x.com/iamparas0">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter Logo" />
+        </a>
+        <a href="https://www.linkedin.com/in/iamparas0/">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Logo" />
+        </a>
+        <a href="https://www.instagram.com/iamparas.0/">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram Logo" />
+        </a>
+    </div>
 
-
-
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-      -->
-
-  <footer>
-      <div class="footer-container">
-        <p>&copy; 2024 Tic-Tac-Toe Game</p>
-        <ul class="social-links">
-          <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-          <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-          <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
-        </ul>
-        <p>Developed by SaanyaGarg</p>
-      </div>
-  </footer>
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Tic-Tac-Toe Game</p>
+            <ul class="social-links">
+                <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+            </ul>
+            <p>Developed by SaanyaGarg</p>
+        </div>
+    </footer>
 </body>
-
 </html>
