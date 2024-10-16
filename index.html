@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Option Design</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #c5e1c8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgb(131, 147, 214);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(52, 21, 114, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        select {
+            font-size: 16px;
+            padding: 10px;
+            border: 1px solid #c85454;
+            border-radius: 5px;
+            width: 100px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #38115b;
+            color: rgb(42, 148, 88);
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Choose Your Symbol</h1>
+        <label for="playerX">Player :</label>
+        <select id="playerX">
+            <option value="X">X</option>
+            <option value="O">O</option>
+        </select>
+        <br>
+        <button onclick="startGame()">Start Game</button>
+    </div>
+
+    <script>
+        function startGame() {
+            const playerChoice = document.getElementById("playerX").value;
+            alert("Player 1 chose: " + playerChoice);
+            // You can add further game logic here
+        }
+    </script>
+
+</body>
+</html>
