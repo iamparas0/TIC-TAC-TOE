@@ -14,6 +14,23 @@ body {
   min-height: 100vh;
   font-family: Arial, sans-serif;
   transition: background-color 0.3s, color 0.3s;
+  overflow-y: auto; /* Allow vertical scrolling */
+  scrollbar-width: thin; 
+  scrollbar-color: #888 #f0f0f0;
+}
+
+/* Custom scrollbar */
+.app::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.app::-webkit-scrollbar-thumb {
+  background-color: #888; /* Scrollbar thumb color */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.app::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Scrollbar track color */
 }
 
 .header {
@@ -148,10 +165,7 @@ body {
 }
 
 .cell.o {
-
- 
   color: red; /* Specific color for O */
-
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
@@ -224,13 +238,6 @@ body {
 .button:hover {
   background-color: deepskyblue;
   transform: scale(1.05);
-
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.button:hover {
-  background-color: #2196F3;
-  transform: scale(1.1);
 }
 
 .winner-message {
@@ -239,6 +246,7 @@ body {
   font-weight: bold;
   color: green;
 }
+
 /* Player Name Entry */
 .player-input {
   margin: 10px;
@@ -362,10 +370,12 @@ body {
 .dark .cell {
   border: 2px solid white;
 }
-.dark .result-board{
+
+.dark .result-board {
   background-color: #444;
-  color:#fff;
+  color: #fff;
 }
+
 .dark .result-board h2 {
   color: #fff; 
 }
@@ -601,10 +611,6 @@ body {
   background-color: #1e88e5;
 }
 
-
-
-
-/* New theme toggle styles */
 .theme-toggle {
   display: inline-flex;
   background-color: rgba(255, 255, 255, 0.8); /* Light transparent background for toggle */
