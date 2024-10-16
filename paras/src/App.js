@@ -3,6 +3,7 @@ import './App.css';
 import Sparkle from './Sparkle'; // If Sparkle is not used, you can remove this import.
 
 const initialBoard = Array(9).fill(null);
+const winSound = new Audio('win-sound1.wav'); 
 
 const App = () => {
   const [board, setBoard] = useState(initialBoard);
@@ -16,7 +17,7 @@ const App = () => {
   const [highestScorePlayerX, setHighestScorePlayerX] = useState(0);
   const [highestScorePlayerO, setHighestScorePlayerO] = useState(0);
   const [gameMode, setGameMode] = useState(null);
-  
+
   // Handle click on a cell
   const handleCellClick = (index) => {
     if (board[index] || winner || draw) return;
@@ -28,6 +29,11 @@ const App = () => {
     setCurrentPlayer(currentPlayer === 'X' ? 'O' : 'X');
   };
 
+  // Function to play the win sound
+  const playWinSound = () => {
+    winSound.play();
+  };
+
   // Check if there's a winner
   const checkWinner = (board, player) => {
     const winningCombinations = [
@@ -35,15 +41,18 @@ const App = () => {
       [0, 3, 6], [1, 4, 7], [2, 5, 8],
       [0, 4, 8], [2, 4, 6]
     ];
+
     for (let combination of winningCombinations) {
       const [a, b, c] = combination;
       if (board[a] === player && board[b] === player && board[c] === player) {
         setWinner(player);
+        playWinSound();
         updateScoreAndHighestScore(player);
         return;
       }
     }
-    if (board.every(cell => cell !== null) && !winner) {
+
+    if (board.every((cell) => cell !== null) && !winner) {
       setDraw(true);
     }
   };
@@ -118,20 +127,18 @@ const App = () => {
     return (
       <div className={`app ${isDarkMode ? 'dark' : ''}`}>
         <div className="header">
-          <a href=""></a>
-              <div class="navbar-logo">
-                
-                <img src="https://www.svgrepo.com/show/143264/tic-tac-toe-game.svg" alt="Tic Tac Toe Logo" class="logo" />
-                <h1 class="navbar-title">Tic Tac Toe</h1>
-              </div>
-          <div class="navbar">
-              <div class="navbar-links">
-                <a href="#" class="nav-link">Home</a>
-                <a href="#" class="nav-link">About</a>
-                <a href="#" class="nav-link">Rules</a>
-                <a href="#" class="nav-link">Contact</a>
-              </div>
+          <div className="navbar-logo">
+            <img src="https://www.svgrepo.com/show/143264/tic-tac-toe-game.svg" alt="Tic Tac Toe Logo" className="logo" />
+            <h1 className="navbar-title">Tic Tac Toe</h1>
+          </div>
+          <div className="navbar">
+            <div className="navbar-links">
+              <a href="#" className="nav-link">Home</a>
+              <a href="#" className="nav-link">About</a>
+              <a href="#" className="nav-link">Rules</a>
+              <a href="#" className="nav-link">Contact</a>
             </div>
+          </div>
 
           <div className="theme-toggle">
             <button className={`theme-button ${theme === 'system' ? 'active' : ''}`} onClick={() => handleThemeChange('system')}>
