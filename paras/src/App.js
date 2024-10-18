@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Signup from "./Signup";
-import Login from "./Login";
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+import Signup from './Signup';
+import Login from './Login';
 
-// Initial Board for Tic Tac Toe
+// Tic-Tac-Toe Game component
 const initialBoard = Array(9).fill(null);
 
 const Game = () => {
@@ -78,8 +78,8 @@ const Game = () => {
       </div>
 
       <div className="board">
-        {board.map((cell, index) => renderCell(index))}
-      </div>
+        {board.map((cell, index) => renderCell(index))}  
+      </div>      
 
       {showPopup && (
         <div className="popup">
@@ -107,8 +107,9 @@ const Game = () => {
       </footer>
     </div>
   );
-}
+};
 
+// Main App component with React Router
 function App() {
   return (
     <Router>
