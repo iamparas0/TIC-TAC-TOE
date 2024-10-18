@@ -180,11 +180,12 @@ const App = () => {
       </div>
 
       {winner && (
-        <div className="winner-message">
+          <div className="winner-message">
           <p>Player {winner} wins!</p>
-          <button onClick={resetGame}>Restart</button>
-        </div>
-      )}
+          <button className="replay-button" onClick={resetGame}>Replay</button>
+      </div>
+    )}
+
     </div>
   );
 };
