@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './App.css'; 
 import Sparkle from './Sparkle'; // If Sparkle is not used, you can remove this import.
-
+import { Link } from 'react-router-dom';
 const initialBoard = Array(9).fill(null);
 
 const App = () => {
-  const [board, setBoard] = useState(initialBoard); 
+  const [board, setBoard] = useState(initialBoard);
   const [currentPlayer, setCurrentPlayer] = useState('X');
   const [winner, setWinner] = useState(null);
   const [draw, setDraw] = useState(false);
@@ -43,7 +43,6 @@ const App = () => {
         return;
       }
     }
-    // If all cells are filled and there's no winner, it's a draw
     if (board.every(cell => cell !== null) && !winner) {
       setDraw(true);
     }
@@ -127,10 +126,12 @@ const App = () => {
               </div>
           <div class="navbar">
               <div class="navbar-links">
-                <a href="#" class="nav-link">Home</a>
-                <a href="#" class="nav-link">About</a>
-                <a href="#" class="nav-link">Rules</a>
-                <a href="#" class="nav-link">Contact</a>
+                <Link to="/home" class="nav-link">Home</Link>
+                <Link to="/about" class="nav-link">About</Link>
+                <Link to="/rules" class="nav-link">Rules</Link>
+                <Link to="/contact" class="nav-link">Contact</Link>
+                <Link to="/signup" className='nav-link'>Sign Up</Link>
+                <Link to="/Login" className='nav-link'>Log In</Link>
               </div>
             </div>
 
@@ -178,18 +179,9 @@ const App = () => {
         {board.map((cell, index) => renderCell(index))}
       </div>
 
-      {/* Show message when there is a winner */}
       {winner && (
         <div className="winner-message">
           <p>Player {winner} wins!</p>
-          <button onClick={resetGame}>Restart</button>
-        </div>
-      )}
-
-      {/* Show message when the game ends in a draw */}
-      {draw && !winner && (
-        <div className="draw-message">
-          <p>It's a draw!</p>
           <button onClick={resetGame}>Restart</button>
         </div>
       )}
