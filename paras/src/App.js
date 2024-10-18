@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './App.css'; 
-import Sparkle from './Sparkle'; // If Sparkle is not used, you can remove this import.
 
 const initialBoard = Array(9).fill(null);
 
 const App = () => {
-  const [board, setBoard] = useState(initialBoard);
+  const [board, setBoard] = useState(initialBoard); 
   const [currentPlayer, setCurrentPlayer] = useState('X');
   const [winner, setWinner] = useState(null);
   const [draw, setDraw] = useState(false);
@@ -43,6 +42,7 @@ const App = () => {
         return;
       }
     }
+    // If all cells are filled and there's no winner, it's a draw
     if (board.every(cell => cell !== null) && !winner) {
       setDraw(true);
     }
@@ -177,9 +177,18 @@ const App = () => {
         {board.map((cell, index) => renderCell(index))}
       </div>
 
+      {/* Show message when there is a winner */}
       {winner && (
         <div className="winner-message">
           <p>Player {winner} wins!</p>
+          <button onClick={resetGame}>Restart</button>
+        </div>
+      )}
+
+      {/* Show message when the game ends in a draw */}
+      {draw && !winner && (
+        <div className="draw-message">
+          <p>It's a draw!</p>
           <button onClick={resetGame}>Restart</button>
         </div>
       )}
