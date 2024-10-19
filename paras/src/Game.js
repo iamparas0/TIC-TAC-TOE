@@ -25,7 +25,36 @@ const App = () => {
     newBoard[index] = currentPlayer;
     setBoard(newBoard);
     checkWinner(newBoard, currentPlayer);
-    setCurrentPlayer(currentPlayer === 'X' ? 'O' : 'X');
+
+    if(gameMode==='multiplayer')
+    {
+      setCurrentPlayer(currentPlayer === 'X'?'O':'X');
+    }
+
+    if(gameMode==='ai')
+    {
+      setTimeout(()=>{
+        aiTurn(newBoard);
+      },400);
+    }
+    
+  };
+
+  const aiTurn=(currentBoard) => {
+    const availableMoves=currentBoard
+      .map((cell, index) => (cell===null? index : null))
+      .filter((index) => index !== null);
+
+    if (availableMoves.length===0) 
+    {
+        return;
+    } 
+    const aiMove = availableMoves[Math.floor(Math.random()*availableMoves.length)];
+    const newBoard = [...currentBoard];
+    newBoard[aiMove]='O';
+    setBoard(newBoard);
+    checkWinner(newBoard,'O');
+    setCurrentPlayer('X');
   };
 
   // Check if there's a winner
@@ -40,6 +69,7 @@ const App = () => {
       if (board[a] === player && board[b] === player && board[c] === player) {
         setWinner(player);
         updateScoreAndHighestScore(player);
+        setDraw(false);
         return;
       }
     }
