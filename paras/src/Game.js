@@ -126,7 +126,7 @@ const App = () => {
               </div>
           <div class="navbar">
               <div class="navbar-links">
-                <Link to="/home" class="nav-link">Home</Link>
+                <Link to="/" class="nav-link">Home</Link>
                 <Link to="/about" class="nav-link">About</Link>
                 <Link to="/rules" class="nav-link">Rules</Link>
                 <Link to="/contact" class="nav-link">Contact</Link>
