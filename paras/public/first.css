@@ -13,8 +13,10 @@ footer {
   .footer-container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding: -20px;
     display: flex;
+    height: 10px;
+    position: relative;
     flex-direction: column;
     align-items: center;
   }
