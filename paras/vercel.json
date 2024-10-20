@@ -2,8 +2,9 @@
     "rewrites":[
         {"source" : "./(.*)", "destination" : "/"}
     ],
-
-    "github": {
-      "autoJobCancelation": false
-    }
-  }
+        "git": {
+          "deploymentEnabled": {
+            "main": false
+          }
+        }
+      }
