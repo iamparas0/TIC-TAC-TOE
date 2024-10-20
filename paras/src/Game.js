@@ -185,6 +185,12 @@ const App = () => {
           <button onClick={resetGame}>Restart</button>
         </div>
       )}
+      {draw && !winner && (
+        <div className="draw-message">
+          <p>It's a draw!</p>
+          <button onClick={resetGame}>Restart</button>
+        </div>
+      )}
     </div>
   );
 };
