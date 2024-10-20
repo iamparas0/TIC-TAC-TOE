@@ -1,7 +1,9 @@
 {
     "rewrites":[
         {"source" : "./(.*)", "destination" : "/"}
-    ]
+    ],
 
-}
-
+    "github": {
+      "autoJobCancelation": false
+    }
+  }
