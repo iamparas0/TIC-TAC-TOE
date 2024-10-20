@@ -12,6 +12,7 @@ body {
   background-color: white;
   color: black;
   min-height: 100vh;
+  min-width: 100vh;
   font-family: Arial, sans-serif;
   transition: background-color 0.3s, color 0.3s;
 }
@@ -31,7 +32,8 @@ body {
   flex-grow: 1;
   text-align: center;
   position: relative;
-  left: 85px;
+  left: 20px;
+  top:8px;
   font-size: 28px; /* Increased font size */
   letter-spacing: 1px; /* Added letter spacing for readability */
 }
