@@ -128,7 +128,7 @@ const App = () => {
               <div class="navbar-links">
                 <Link to="/home" class="nav-link">Home</Link>
                 <Link to="/about" class="nav-link">About</Link>
-                <Link to="/rules" class="nav-link">Rules</Link>
+                <Link to="/rules.js" class="nav-link">Rules</Link>
                 <Link to="/contact" class="nav-link">Contact</Link>
                 <Link to="/signup" className='nav-link'>Sign Up</Link>
                 <Link to="/Login" className='nav-link'>Log In</Link>
