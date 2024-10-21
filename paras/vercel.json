@@ -1,10 +1,10 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+  "rewrites":[
+      {"source" : "./(.*)", "destination" : "/"}
   ],
-  "git": {
-    "deploymentEnabled": {
-      "main": true
+      "git": {
+        "deploymentEnabled": {
+          "main": false
+        }
+      }
     }
-  }
-}
