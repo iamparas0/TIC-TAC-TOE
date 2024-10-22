@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
+import Signup from "./Signup";
+import Login from "./Login";
 
 const initialBoard = Array(9).fill(null);
-const winSound = new Audio('win-sound1.wav'); 
+const winSound = new Audio('win-sound1.wav');
 
-const App = () => {
+const Game = () => {
   const [board, setBoard] = useState(initialBoard);
   const [currentPlayer, setCurrentPlayer] = useState("X");
   const [winner, setWinner] = useState(null);
@@ -196,5 +199,17 @@ const App = () => {
     </div>
   );
 };
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Game />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </Router>
+  );
+}
 
 export default App;
