@@ -30,7 +30,6 @@ body {
 .title {
   flex-grow: 1;
   text-align: center;
-  position: relative;
   left: 85px;
   font-size: 28px; /* Increased font size */
   letter-spacing: 1px; /* Added letter spacing for readability */
