@@ -1,13 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
 import './App.css'; 
-import Game from "./Game";
-import Signup from "./Signup";
-import Login from "./Login";
 import Sparkle from './Sparkle'; // If Sparkle is not used, you can remove this import.
-
+import { Link } from 'react-router-dom';
 const initialBoard = Array(9).fill(null);
-const winSound = new Audio('win-sound1.wav'); 
 
 const App = () => {
   const [board, setBoard] = useState(initialBoard);
@@ -21,7 +16,7 @@ const App = () => {
   const [highestScorePlayerX, setHighestScorePlayerX] = useState(0);
   const [highestScorePlayerO, setHighestScorePlayerO] = useState(0);
   const [gameMode, setGameMode] = useState(null);
-
+  
   // Handle click on a cell
   const handleCellClick = (index) => {
     if (board[index] || winner || draw) return;
@@ -33,11 +28,6 @@ const App = () => {
     setCurrentPlayer(currentPlayer === 'X' ? 'O' : 'X');
   };
 
-  // Function to play the win sound
-  const playWinSound = () => {
-    winSound.play();
-  };
-
   // Check if there's a winner
   const checkWinner = (board, player) => {
     const winningCombinations = [
@@ -45,18 +35,15 @@ const App = () => {
       [0, 3, 6], [1, 4, 7], [2, 5, 8],
       [0, 4, 8], [2, 4, 6]
     ];
-
     for (let combination of winningCombinations) {
       const [a, b, c] = combination;
       if (board[a] === player && board[b] === player && board[c] === player) {
         setWinner(player);
-        playWinSound();
         updateScoreAndHighestScore(player);
         return;
       }
     }
-
-    if (board.every((cell) => cell !== null) && !winner) {
+    if (board.every(cell => cell !== null) && !winner) {
       setDraw(true);
     }
   };
@@ -127,62 +114,79 @@ const App = () => {
     resetGame();
   };
 
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={
-          <div className={`app ${isDarkMode ? 'dark' : ''}`}>
-            {gameMode === null ? (
-              <div>
-                <div className="header">
-                  <div className="navbar-logo">
-                    <img src="https://www.svgrepo.com/show/143264/tic-tac-toe-game.svg" alt="Tic Tac Toe Logo" className="logo" />
-                    <h1 className="navbar-title">Tic Tac Toe</h1>
-                  </div>
-                  <div className="navbar">
-                    <div className="navbar-links">
-                      <a href="#" className="nav-link">Home</a>
-                      <a href="#" className="nav-link">About</a>
-                      <a href="#" className="nav-link">Rules</a>
-                      <a href="#" className="nav-link">Contact</a>
-                    </div>
-                  </div>
-                  <div className="theme-toggle">
-                    <button className={`theme-button ${theme === 'system' ? 'active' : ''}`} onClick={() => handleThemeChange('system')}>
-                      <span role="img" aria-label="System">💻</span>
-                    </button>
-                    <button className={`theme-button ${theme === 'light' ? 'active' : ''}`} onClick={() => handleThemeChange('light')}>
-                      <span role="img" aria-label="Light">☀️</span>
-                    </button>
-                    <button className={`theme-button ${theme === 'dark' ? 'active' : ''}`} onClick={() => handleThemeChange('dark')}>
-                      <span role="img" aria-label="Dark">🌙</span>
-                    </button>
-                  </div>
-                </div>
-                <div className="mode-selection">
-                  <h2>Choose Game Mode</h2>
-                  <button onClick={() => setGameMode('multiplayer')}>Multiplayer</button>
-                  <button onClick={() => setGameMode('ai')}>Play against AI</button>
-                </div>
+  if (gameMode === null) {
+    return (
+      <div className={`app ${isDarkMode ? 'dark' : ''}`}>
+        <div className="header">
+          <a href=""></a>
+              <div class="navbar-logo">
+                
+                <img src="https://www.svgrepo.com/show/143264/tic-tac-toe-game.svg" alt="Tic Tac Toe Logo" class="logo" />
+                <h1 class="navbar-title">Tic Tac Toe</h1>
               </div>
-            ) : (
-              <Game 
-                board={board} 
-                currentPlayer={currentPlayer} 
-                handleCellClick={handleCellClick} 
-                winner={winner} 
-                draw={draw} 
-                scorePlayerX={scorePlayerX} 
-                scorePlayerO={scorePlayerO}
-              />
-            )}
+          <div class="navbar">
+              <div class="navbar-links">
+                <Link to="/home" class="nav-link">Home</Link>
+                <Link to="/about" class="nav-link">About</Link>
+                <Link to="/rules" class="nav-link">Rules</Link>
+                <Link to="/contact" class="nav-link">Contact</Link>
+                <Link to="/signup" className='nav-link'>Sign Up</Link>
+                <Link to="/Login" className='nav-link'>Log In</Link>
+              </div>
+            </div>
+
+          <div className="theme-toggle">
+            <button className={`theme-button ${theme === 'system' ? 'active' : ''}`} onClick={() => handleThemeChange('system')}>
+              <span role="img" aria-label="System">💻</span>
+            </button>
+            <button className={`theme-button ${theme === 'light' ? 'active' : ''}`} onClick={() => handleThemeChange('light')}>
+              <span role="img" aria-label="Light">☀️</span>
+            </button>
+            <button className={`theme-button ${theme === 'dark' ? 'active' : ''}`} onClick={() => handleThemeChange('dark')}>
+              <span role="img" aria-label="Dark">🌙</span>
+            </button>
           </div>
-        } />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
-    </Router>
+        </div>
+        <div className="mode-selection">
+          <h2>Choose Game Mode</h2>
+          <button onClick={() => setGameMode('multiplayer')}>Multiplayer</button>
+          <button onClick={() => setGameMode('ai')}>Play against AI</button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className={`app ${isDarkMode ? 'dark' : ''}`}>
+      <div className="header">
+        <h1 className="title">Tic Tac Toe</h1>
+      </div>
+
+      <div className="winner-counter">
+        <div className={winner === 'X' ? 'winner-highlight' : ''}>
+          X Wins: {scorePlayerX}
+        </div>
+        <div className={winner === 'O' ? 'winner-highlight' : ''}>
+          O Wins: {scorePlayerO}
+        </div>
+      </div>
+
+      <button className="back-button" onClick={handleBackButton}>
+        ← Back to Mode Selection
+      </button>
+
+      <div className="board">
+        {board.map((cell, index) => renderCell(index))}
+      </div>
+
+      {winner && (
+        <div className="winner-message">
+          <p>Player {winner} wins!</p>
+          <button onClick={resetGame}>Restart</button>
+        </div>
+      )}
+    </div>
   );
-}
+};
 
 export default App;
