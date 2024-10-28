@@ -8,6 +8,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<body>
+    <div class="container2">
+
+<button class="logout-btn">
+    Logout
+</button>
+
+<script src = "./logout.js"></script>
+
+
+
+    </div>
+</body>
     <meta
       name="description"
       content="Web site created using create-react-app"
@@ -22,12 +35,49 @@
           font-family: "Caveat", cursive; 
       }
 
+      .logout-btn{
+
+
+color: #fff;
+background-color: orangered;
+height: 25px;
+width: 50px;
+font-size: 10px;
+padding-top: 12px;
+padding-right: 15px;
+padding-top: 12px;
+padding-left: 15px;
+padding: 10px;
+cursor: pointer;
+border-radius: 15px;
+margin-top: 30px;
+font-weight: 700px;
+margin-left: 1200px;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      }
+
       #root {
           flex: 1;
       }
 
       .follow-us {
-          background-color: #58ed64;
+          background-color: #c8ed58;
           padding: 8px;
           text-align: center;
           margin-top: auto;
@@ -81,6 +131,7 @@
 
 
     <link rel="stylesheet" type="text/css" href="first.css">
+
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -92,6 +143,7 @@
     -->
 
     <title>TIC TAC TOE</title>
+    <link rel="stylesheet" href="app.css">
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -129,6 +181,57 @@
         </ul>
       </div>
   </footer>
+
+
+<script>
+const logoutBtn = document.querySelector(".logout-btn")
+
+
+logoutBtn.addEventListener("click",()=>{
+window.location.replace("login.html");
+
+
+
+
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>
