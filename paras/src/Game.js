@@ -3,6 +3,7 @@ import './App.css';
 import Sparkle from './Sparkle'; // If Sparkle is not used, you can remove this import.
 import { Link } from 'react-router-dom';
 const initialBoard = Array(9).fill(null);
+import winSoundFile from './win-sound1.wav'; 
 
 const App = () => {
   const [board, setBoard] = useState(initialBoard);
@@ -16,6 +17,8 @@ const App = () => {
   const [highestScorePlayerX, setHighestScorePlayerX] = useState(0);
   const [highestScorePlayerO, setHighestScorePlayerO] = useState(0);
   const [gameMode, setGameMode] = useState(null);
+  
+  const winSound = new Audio(winSoundFile);
   
   // Handle click on a cell
   const handleCellClick = (index) => {
@@ -40,6 +43,11 @@ const App = () => {
       if (board[a] === player && board[b] === player && board[c] === player) {
         setWinner(player);
         updateScoreAndHighestScore(player);
+        try {
+          winSound.play(); // Play sound on win
+        } catch (error) {
+          console.error("Failed to play win sound:", error);
+        }
         return;
       }
     }
