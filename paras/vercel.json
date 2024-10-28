@@ -6,13 +6,29 @@
 
 }
 
-"rewrites":[
-{"source" : "./(.*)", "destination" : "/"}
-],
-"git": {
-"deploymentEnabled": {
-"main": false
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ],
+  "git": {
+    "deploymentEnabled": {
+      "main": false
+    }
+  }
 }
+
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "index.html",
+            "use": "@vercel/static"
+        }
+    ]
 }
-}
+
 
