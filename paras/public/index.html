@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="img.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -111,6 +111,7 @@
               <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram Logo" />
           </a>
       </div>
+
       <div class="gtranslate_wrapper"></div>
 
       <script>
@@ -128,8 +129,56 @@
         defer
       ></script>
     
+
+
+
+
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+      -->
+
+      <style>
+      .voting-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: 'Arial', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 2px solid #3498db;
+}
+
+.voting-button:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.voting-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button-container {
+    padding: 20px;
+    text-align: center;
+}
+
+      </style>
+
+
   <footer>
       <div class="footer-container">
+        <div class="button-container">
+            <a href="voting_system.html" class="voting-button">Voting System</a>
+        </div>
         <p>&copy; 2024 Tic-Tac-Toe Game</p>
         <ul class="social-links">
           <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>

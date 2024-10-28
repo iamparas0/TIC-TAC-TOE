@@ -90,6 +90,16 @@ const App = () => {
       setIsDarkMode(systemDarkMode);
     }
   };
+  const resetApp = () => {
+    setBoard(initialBoard);
+    setCurrentPlayer('X');
+    setWinner(null);
+    setDraw(false);
+    setScorePlayerX(0);
+    setScorePlayerO(0);
+    setGameMode(null); // Reset game mode selection
+  };
+  
 
   // Setup initial theme
   useEffect(() => {
@@ -126,7 +136,7 @@ const App = () => {
               </div>
           <div class="navbar">
               <div class="navbar-links">
-                <Link to="/home" class="nav-link">Home</Link>
+                <Link to="/" class="nav-link">Home</Link>
                 <Link to="/about" class="nav-link">About</Link>
                 <Link to="/rules" class="nav-link">Rules</Link>
                 <Link to="/contact" class="nav-link">Contact</Link>
@@ -179,12 +189,13 @@ const App = () => {
         {board.map((cell, index) => renderCell(index))}
       </div>
 
-      {winner && (
-        <div className="winner-message">
-          <p>Player {winner} wins!</p>
-          <button onClick={resetGame}>Restart</button>
-        </div>
-      )}
+      <div className="winner-message">
+  {winner && <p>Player {winner} wins!</p>}
+  {draw && <p>It's a draw!</p>}
+  <button onClick={resetGame}>Restart Game</button>
+  <button onClick={resetApp}>Restart App</button> {/* New Reload Button */}
+</div>
+
     </div>
   );
 };
