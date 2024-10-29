@@ -1,7 +1,16 @@
+
+
+import React, { useState, useEffect } from 'react';
+import './App.css'; 
+import Sparkle from './Sparkle'; // If Sparkle is not used, you can remove this import.
+import { Link } from 'react-router-dom';
+
+
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import Sparkle from "./Sparkle"; // If Sparkle is not used, you can remove this import.
 import { Link } from "react-router-dom";
+
 const initialBoard = Array(9).fill(null);
 
 const App = () => {
@@ -16,6 +25,9 @@ const App = () => {
   const [highestScorePlayerX, setHighestScorePlayerX] = useState(0);
   const [highestScorePlayerO, setHighestScorePlayerO] = useState(0);
   const [gameMode, setGameMode] = useState(null);
+
+  const [gameHistory, setGameHistory] = useState([]); // Added game history state
+
 
   // Handle click on a cell
   const handleCellClick = (index) => {
@@ -104,8 +116,20 @@ const App = () => {
     }
   };
 
+  // Update game history
+  const updateGameHistory = (board) => {
+    let updatedHistory = [...gameHistory, board];
+    if (updatedHistory.length > 3) {
+      updatedHistory = updatedHistory.slice(1); // Keep only the last 3 games
+    }
+    setGameHistory(updatedHistory);
+  };
+
   // Reset the game but keep the scores intact
   const resetGame = () => {
+    if (winner || draw) {
+      updateGameHistory(board); // Store the finished game in history
+    }
     setBoard(initialBoard);
     setCurrentPlayer("X");
     setWinner(null);
@@ -167,6 +191,22 @@ const App = () => {
       </div>
     );
   };    
+
+  // Render game history
+  const renderHistory = () => {
+    return gameHistory.map((pastGame, index) => (
+      <div key={index} className="history-box">
+        <h3>Game {index + 1}</h3>
+        <div className="history-board">
+          {pastGame.map((cell, cellIndex) => (
+            <div key={cellIndex} className="history-cell">
+              {cell}
+            </div>
+          ))}
+        </div>
+      </div>
+    ));
+  };
 
   // Game Mode selection
   const handleBackButton = () => {
@@ -300,6 +340,19 @@ const App = () => {
       {winner && (
           <div className="winner-message">
           <p>Player {winner} wins!</p>
+
+          <button onClick={resetGame}>Restart</button>
+        </div>
+      )}
+
+      {/* Game History Section */}
+      {gameMode === 'multiplayer' && (
+        <div className="game-history">
+          <h2>Game History (Last 3 Games)</h2>
+          {renderHistory()}
+        </div>
+      )}
+
           <button className="replay-button" onClick={resetGame}>Replay</button>
       </div>
     )}
@@ -310,6 +363,7 @@ const App = () => {
   <button onClick={resetGame}>Restart Game</button>
   <button onClick={resetApp}>Restart App</button> {/* New Reload Button */}
 </div>
+
 
 
     </div>
