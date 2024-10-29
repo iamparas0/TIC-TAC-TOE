@@ -188,10 +188,18 @@ const App = () => {
           </div>
         </div>
         <div className="mode-selection">
-          <h2>Choose Game Mode</h2>
-          <button onClick={() => setGameMode('multiplayer')}>Multiplayer</button>
-          <button onClick={() => setGameMode('ai')}>Play against AI</button>
-        </div>
+  <h2>Choose Your Game Mode</h2>
+  <div className="button-container">
+    <button className="mode-button" onClick={() => setGameMode("multiplayer")}>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBph70qYzF6IPJqI7zOXp-xF9HLGn3FqvxZQ&s" alt="Multiplayer Icon" />
+      Multiplayer
+    </button>
+    <button className="mode-button" onClick={() => setGameMode("ai")}>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWnLeRr1MHSN67acn-0GshKonoEUEl29_bng&s" alt="AI Icon" />
+      Play against AI
+    </button>
+  </div>
+</div>
       </div>
     );
   }
