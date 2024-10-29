@@ -31,7 +31,8 @@ body {
   flex-grow: 1;
   text-align: center;
   position: relative;
-  left: 85px;
+  left: 0px;
+  top:15px;
   font-size: 28px; /* Increased font size */
   letter-spacing: 1px; /* Added letter spacing for readability */
 }
@@ -63,7 +64,7 @@ body {
 
 /* Logo and Title Container */
 .navbar-logo {
-  
+  left: 20px;
   display: flex; /* Flexbox for logo and title alignment */
   align-items: center; /* Center vertically */
 }
@@ -89,6 +90,7 @@ body {
 
 /* Link Styling */
 .navbar-links {
+
   display: flex; /* Horizontal layout for links */
   justify-content: center; /* Center the links */
   flex-grow: 1; /* Allow links to take remaining space */
@@ -243,7 +245,12 @@ body {
 .player-input {
   margin: 10px;
 }
-
+.draw-message{
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: green;
+}
 .player-input input {
   padding: 5px;
   margin: 5px;
@@ -346,7 +353,7 @@ body {
 
 .footer {
   text-align: center;
-  padding: 20px;
+  height:10px;
   font-size: 14px;
   border-top: 1px solid #ccc;
   background-color: #f9f9f9;
@@ -524,7 +531,11 @@ body {
   color: white;
   animation: highlight 1.5s infinite alternate;
 }
-
+.draw-highlight{
+  background-color: limegreen;
+  color: white;
+  animation: highlight 1.5s infinite alternate;
+}
 @keyframes highlight {
   0% {
     background-color: limegreen;
@@ -666,6 +677,259 @@ body {
   font-weight: bold;
   color: #d9534f;
 }
+.replay-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.replay-button:hover {
+  background-color: darkred;
+}
 
 
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100px;
+  font-size: 36px;
+  font-weight: bold;
+  background-color: #d4eaf8;
+  border: 2px solid #333;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
 
+.cell:hover {
+  background-color: #b0d4f1;
+  transform: scale(1.1); /* Slight zoom-in on hover */
+}
+
+.winner-message {
+  margin-top: 20px;
+  font-size: 24px;
+  color: green;
+}
+
+.winner-highlight {
+  font-weight: bold;
+  color: gold;
+}
+
+.back-button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #ff7f7f;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #ff4c4c;
+}
+/* General Reset and Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #f0f0f0;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  
+}
+
+.app {
+ width: 1500px;
+  max-width: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: background-color 0.5s;
+}
+
+.app.dark {
+  background-color: #2c2c2c;
+  color: #fff;
+}
+
+/* Header */
+.header {
+  background-color: #6200ea;
+  color: white;
+  text-align: center;
+ 
+  
+}
+
+.header .title {
+  font-size: 1.8rem;
+}
+
+/* Navbar Links */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  background-color: #3700b3;
+  padding: 10px 0;
+}
+
+.navbar-links .nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.navbar-links .nav-link:hover {
+  color: #ffcc00;
+}
+
+/* Board Styling */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 20px;
+  margin: 10px auto;
+}
+
+.cell {
+  width: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  background-color: #eeeeee;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.cell:hover {
+  background-color: #c5cae9;
+  transform: scale(1.05);
+}
+
+/* Winner Counter */
+.winner-counter {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0;
+}
+
+.winner-counter div {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.winner-highlight {
+  color: #ff5722;
+}
+
+/* Winner Message */
+.winner-message {
+  text-align: center;
+  padding: 10px;
+}
+
+.winner-message p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.winner-message button {
+  margin: 5px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.winner-message button:hover {
+  background-color: #8e24aa;
+  color: white;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.theme-button {
+  margin: 0 5px;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.theme-button.active {
+  background-color: #6200ea;
+  color: white;
+}
+
+/* Mode Selection */
+.mode-selection {
+  text-align: center;
+  padding: 20px;
+}
+
+.mode-selection h2 {
+  margin-bottom: 10px;
+}
+
+.mode-selection button {
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #6200ea;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.mode-selection button:hover {
+  background-color: #3700b3;
+}
+
+/* Back Button */
+.back-button {
+  margin: 10px;
+  padding: 8px 15px;
+  border: none;
+  background-color: #ff5722;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #e64a19;
+}
