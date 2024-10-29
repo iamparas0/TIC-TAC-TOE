@@ -1,0 +1,160 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(120deg, #f0f4f8, #d9e2ec);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  color: #333;
+}
+
+.login-container {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: relative; /* Changed from absolute */
+  top:15%;
+}
+
+.login-container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.login-container h2 {
+  margin-bottom: 25px;
+  color: #1a202c;
+  font-weight: 600;
+  font-size: 28px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #1a202c;
+  font-weight: 500;
+}
+
+.form-group input {
+  padding: 12px;
+  width: 100%;
+  font-size: 16px;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  margin-top: 8px;
+  transition: all 0.3s ease;
+  background-color: #f7fafc;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #3182ce;
+  background-color: #ffffff;
+  box-shadow: 0 0 8px rgba(49, 130, 206, 0.3);
+}
+
+.login-btn {
+  padding: 14px;
+  background-color: #3182ce;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #2b6cb0;
+  box-shadow: 0 6px 12px rgba(49, 130, 206, 0.3);
+}
+
+.error-msg {
+  color: #e53e3e;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.success-msg {
+  color: #38a169;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.error-input {
+  border-color: #e53e3e;
+}
+
+.redirect-text {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #4a5568;
+}
+
+.redirect-link {
+  color: #3182ce;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.redirect-link:hover {
+  color: #2b6cb0;
+}
+
+/* Center the login-container properly */
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.login-container {
+  animation: fadeIn 0.6s ease;
+}
+
+@media (max-width: 600px) {
+  .login-container {
+    padding: 30px;
+    max-width: 90%;
+  }
+
+  .login-btn {
+    padding: 12px;
+  }
+}
