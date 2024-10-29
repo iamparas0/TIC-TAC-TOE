@@ -1,0 +1,914 @@
+/* App.css */
+body {
+    font-family: 'Arial', sans-serif; /* Use a modern font */
+    background-color: #f0f4f8; /* Soft background color for contrast */
+    color: #333; /* Dark text for readability */
+    margin: 0;
+    padding: 0;
+  }
+  
+  .app {
+    text-align: center;
+    background-color: white;
+    color: black;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .header {
+    display: flex;
+    
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 20px; /* Adjusted padding for better spacing */
+    background: rgb(204, 171, 234); /* Gradient background */ 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px; /* Rounded corners for a softer look */
+  }
+  
+  .title {
+    flex-grow: 1;
+    text-align: center;
+    position: relative;
+    left: 85px;
+    font-size: 28px; /* Increased font size */
+    letter-spacing: 1px; /* Added letter spacing for readability */
+  }
+  
+  
+  .board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+    max-width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 15px;
+    background: linear-gradient(120deg, #e7fba7, #f2acca89);
+    transition: background-color 0.5s, transform 0.5s ease;
+  }
+  /* Navbar Styling */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+   
+    align-items: center;
+    padding: 10px 100px;
+    background: linear-gradient(120deg, #f9baea, #5b6f94); /* Gradient background */
+    color: #ffffff; /* White text color */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    border-radius: 10px; /* Rounded corners */
+  }
+  
+  /* Logo and Title Container */
+  .navbar-logo {
+    left: 20px;
+    display: flex; /* Flexbox for logo and title alignment */
+    align-items: center; /* Center vertically */
+  }
+  .navbar-logo h1{
+    font-family: "Bebas Neue", sans-serif;
+  }
+  
+  /* Logo Styling */
+  .logo {
+    width: 40px; /* Logo width */
+    height: 40px; /* Logo height */
+    margin-right: 5px; /* Space between logo and title */
+  }
+  
+  /* Title Styling */
+  .navbar-title {
+    font-size: 28px; /* Stylish font size */
+    font-family: 'Cursive', sans-serif; /* Stylish font */
+    letter-spacing: 1.5px; /* Increased letter spacing */
+    margin: 10px; /* Remove default margin */
+    
+  }
+  
+  /* Link Styling */
+  .navbar-links {
+  
+    display: flex; /* Horizontal layout for links */
+    justify-content: center; /* Center the links */
+    flex-grow: 1; /* Allow links to take remaining space */
+    
+  }
+  
+  /* Individual Link Styling */
+  .nav-link {
+    text-decoration: none; /* Remove underline */
+    color: #ffffff; /* White text color */
+    padding: 10px 15px; /* Padding for click area */
+    border-radius: 5px; /* Rounded corners for links */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+    margin: 0 10px; /* Space between links */
+    font-weight: bold;
+  }
+  
+  /* Hover Effect for Links */
+  .nav-link:hover {
+    background: linear-gradient(120deg, #f6a2e1, #a9d7fd); /* Gradient background on hover */
+    color: #ffffff; /* Keep text white */
+    transform: scale(1.05); /* Slight scaling effect on hover */
+  }
+  
+  /* Active Link Effect */
+  .nav-link.active {
+    background: linear-gradient(120deg, #c2daf5, #6cb2eb); /* Active link gradient */
+    color: #ffffff; /* Keep text white */
+  }
+  
+  
+  .cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    font-size: 36px;
+    font-weight: bold;
+    background-color: lightblue;
+    cursor: pointer;
+    color: black;
+    transition: background-color 0.3s, transform 0.2s;
+    border: 2px solid transparent;
+  }
+  
+  .cell:hover {
+    background-color: deepskyblue;
+    transform: scale(1.05);
+  }
+  
+  .cell.clicked {
+    background-color: #f998fe; /* Changes the color of the boxes on click */
+  }
+  
+  .cell.x {
+    color: blue;
+  }
+  
+  .cell.o {
+  
+   
+    color: red; /* Specific color for O */
+  
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .board:hover {
+    background: linear-gradient(120deg, #0d2430, #4c7daf);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  }
+  /* Specific styling for input text boxes */
+  .player-setup input[type="text"] {
+    width: 250px;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    background-color: var(--input-background);
+    color: var(--input-text-color);
+    transition: border-color 0.3s;
+  }
+  
+  /* Change border color on focus */
+  .player-setup input[type="text"]:focus {
+    border-color: #007bff; /* Highlight color when focused */
+    outline: none;
+  }
+  
+  /* Button styling */
+  .player-setup button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s;
+  }
+  
+  /* Dark mode styles */
+  .dark {
+    --background-color: #121212;
+    --text-color: #ffffff;
+    --input-background: #1e1e1e;
+    --input-text-color: #ffffff;
+  }
+  
+  /* Light mode styles */
+  .light {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --input-background: #f0f0f0;
+    --input-text-color: #000000;
+  }
+  
+  .button {
+    margin: 10px 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: lightblue;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .button:hover {
+    background-color: deepskyblue;
+    transform: scale(1.05);
+  
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .button:hover {
+    background-color: #2196F3;
+    transform: scale(1.1);
+  }
+  
+  .winner-message {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: green;
+  }
+  /* Player Name Entry */
+  .player-input {
+    margin: 10px;
+  }
+  
+  .player-input input {
+    padding: 5px;
+    margin: 5px;
+    font-size: 1rem;
+    width: 200px;
+    border: 2px solid lightblue;
+    border-radius: 4px;
+  }
+  
+  .player-input button {
+    margin-top: 20px;
+    padding: 5px 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .player-input button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Winner Message */
+  .winner-message {
+    margin-top: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff5733;
+  }
+  
+  .winner-message button {
+    margin: 10px;
+    padding: 8px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .winner-message button:hover {
+    background-color: #1976D2;
+  }
+  
+  /* Final Winner Message */
+  .final-winner-message {
+    margin-top: 30px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #28a745;
+  }
+  
+  /* Result Board */
+  .result-board {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+  }
+  
+  .result-board h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .result-board p {
+    font-size: 1.4rem;
+    margin: 5px 0;
+    font-weight: bold;
+  }
+  
+  .rules {
+    margin-top: 20px;
+    text-align: left;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .rules h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .rules ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  .rules li {
+    margin-bottom: 5px;
+  }
+  
+  .footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    border-top: 1px solid #ccc;
+    background-color: #f9f9f9;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .dark {
+    background-color: #333;
+    color: white;
+  }
+  
+  .dark .cell {
+    border: 2px solid white;
+  }
+  .dark .result-board{
+    background-color: #444;
+    color:#fff;
+  }
+  .dark .result-board h2 {
+    color: #fff; 
+  }
+  
+  .dark .result-board p {
+    color: #ddd; 
+  }
+  
+  .winning-cell {
+    animation: pulse 1s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      background-color: lightgreen;
+    }
+    50% {
+      background-color: limegreen;
+    }
+    100% {
+      background-color: lightgreen;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .board {
+      max-width: 200px;
+    }
+    .cell {
+      height: 80px;
+      font-size: 24px;
+    }
+  }
+  
+  .dark .app {
+    background: linear-gradient(45deg, #333, #444);
+  }
+  
+  .dark .board {
+    background: linear-gradient(120deg, #220d06, #1b1616);
+  }
+  
+  .dark .cell {
+    background-color: #333;
+    color: white;
+    border: 2px solid #999;
+  }
+  
+  .rules-card {
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 800px;
+    margin: 20px auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Arial', sans-serif;
+    text-align: left;
+    color: #333;
+  }
+  
+  .dark .rules-card {
+    background-color: #444;
+    color: #f9f9f9;
+  }
+  
+  .rules-card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: inherit;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  
+  .rules-card ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .rules-card li {
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    color: inherit;
+  }
+  
+  .dark .rules-card li {
+    background-color: #666;
+  }
+  
+  .rules-card li:hover {
+    background-color: #d5d5d5;
+  }
+  
+  .dark .rules-card li:hover {
+    background-color: #777;
+  }
+  
+  .footer a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  
+  
+  
+  /* Winner Counter Styles */
+  .winner-counter {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f0f0f0; /* Light background for the counter */
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333; /* Dark text color */
+    border: 2px solid #ccc; /* Outer border for the winner counter */
+    width: 300px;
+    margin: 20px auto; /* Center it horizontally */
+  }
+  
+  .dark .winner-counter {
+    background-color: #444; /* Dark background for dark mode */
+    color: #f9f9f9; /* Light text color in dark mode */
+    border-color: #888; /* Border color in dark mode */
+  }
+  
+  /* Individual Winner Box */
+  .winner-counter div {
+    flex: 1; /* Make both sides equal width */
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #ccc; /* Border around each winner box */
+    margin: 0 10px; /* Space between the two winner boxes */
+    background-color: #e0e0e0; /* Background for each winner box */
+    transition: background-color 0.3s ease;
+  }
+  
+  .dark .winner-counter div {
+    background-color: #555; /* Dark background for each winner box */
+    border-color: #888; /* Border color in dark mode */
+  }
+  
+  /* Highlight the current winner */
+  .winner-highlight {
+    background-color: limegreen;
+    color: white;
+    animation: highlight 1.5s infinite alternate;
+  }
+  
+  @keyframes highlight {
+    0% {
+      background-color: limegreen;
+      color: white;
+    }
+    100% {
+      background-color: lightgreen;
+      color: black;
+    }
+  }
+  
+  /* Adjust the layout for smaller screens */
+  @media (max-width: 600px) {
+    .winner-counter {
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    .winner-counter div {
+      margin: 10px 0; /* Vertical spacing for smaller screens */
+    }
+  }
+  
+  .mode-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  .mode-selection h2 {
+    margin-bottom: 20px;
+  }
+  
+  .mode-selection button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .mode-selection button:hover {
+    background-color: #45a049;
+  }
+  
+  .back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .back-button:hover {
+    background-color: #45a049;
+  }
+  
+  .dark .back-button {
+    background-color: #2196F3;
+  }
+  
+  .dark .back-button:hover {
+    background-color: #1e88e5;
+  }
+  
+  
+  
+  
+  /* New theme toggle styles */
+  .theme-toggle {
+    display: inline-flex;
+    background-color: rgba(255, 255, 255, 0.8); /* Light transparent background for toggle */
+    border-radius: 20px;
+    padding: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .theme-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px; /* Increased padding for buttons */
+    border-radius: 16px;
+    transition: background-color 0.3s, transform 0.3s; /* Added transform for scaling */
+  }
+  
+  .theme-button.active {
+    background: linear-gradient(120deg, #4a90e2, #6cb2eb); /* Active button gradient */
+    color: #fff; /* White text for active button */
+  }
+  
+  .theme-button:hover {
+    background-color: rgba(224, 224, 224, 0.6); /* Light hover effect */
+    transform: scale(1.1); /* Scale effect on hover */
+  }
+  
+  .theme-button span {
+    font-size: 20px; /* Increased icon size */
+  }
+  .current-scores,.highest-scores{
+    background-color: #28a796;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px 0;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .current-scores:hover, .highest-scores:hover{
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  .current-scores h2, .highest-scores h2{
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #fff;
+    font-family: 'Montserrat',sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .current-scores p, .highest-scores p{
+    font-size: 18px;
+    margin: 5px 0;
+    color: #ffdd57;
+    font-family: 'Poppins',sans-serif;
+  }
+  .highest-scores p{
+    font-weight: bold;
+    color: #d9534f;
+  }
+  
+  
+  
+  .cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 100px;
+    font-size: 36px;
+    font-weight: bold;
+    background-color: #d4eaf8;
+    border: 2px solid #333;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .cell:hover {
+    background-color: #b0d4f1;
+    transform: scale(1.1); /* Slight zoom-in on hover */
+  }
+  
+  .winner-message {
+    margin-top: 20px;
+    font-size: 24px;
+    color: green;
+  }
+  
+  .winner-highlight {
+    font-weight: bold;
+    color: gold;
+  }
+  
+  .back-button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #ff7f7f;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    transition: background-color 0.3s;
+  }
+  
+  .back-button:hover {
+    background-color: #ff4c4c;
+  }
+  /* General Reset and Styling */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  body {
+    background-color: #f0f0f0;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    
+  }
+  
+  .app {
+   width: 1500px;
+    max-width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: background-color 0.5s;
+  }
+  
+  .app.dark {
+    background-color: #2c2c2c;
+    color: #fff;
+  }
+  
+  /* Header */
+  .header {
+    background-color: #6200ea;
+    color: white;
+    text-align: center;
+   
+    
+  }
+  
+  .header .title {
+    font-size: 1.8rem;
+  }
+  
+  /* Navbar Links */
+  .navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: #3700b3;
+    padding: 10px 0;
+  }
+  
+  .navbar-links .nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .navbar-links .nav-link:hover {
+    color: #ffcc00;
+  }
+  
+  /* Board Styling */
+  .board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 20px;
+    margin: 10px auto;
+  }
+  
+  .cell {
+    width: 100%;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    background-color: #eeeeee;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .cell:hover {
+    background-color: #c5cae9;
+    transform: scale(1.05);
+  }
+  
+  /* Winner Counter */
+  .winner-counter {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+  }
+  
+  .winner-counter div {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  
+  .winner-highlight {
+    color: #ff5722;
+  }
+  
+  /* Winner Message */
+  .winner-message {
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .winner-message p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+  
+  .winner-message button {
+    margin: 5px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .winner-message button:hover {
+    background-color: #8e24aa;
+    color: white;
+  }
+  
+  /* Theme Toggle */
+  .theme-toggle {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+  }
+  
+  .theme-button {
+    margin: 0 5px;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .theme-button.active {
+    background-color: #6200ea;
+    color: white;
+  }
+  
+  /* Mode Selection */
+  .mode-selection {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .mode-selection h2 {
+    margin-bottom: 10px;
+  }
+  
+  .mode-selection button {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #6200ea;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .mode-selection button:hover {
+    background-color: #3700b3;
+  }
+  
+  /* Back Button */
+  .back-button {
+    margin: 10px;
+    padding: 8px 15px;
+    border: none;
+    background-color: #ff5722;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .back-button:hover {
+    background-color: #e64a19;
+  }
+  
