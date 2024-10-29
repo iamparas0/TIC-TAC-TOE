@@ -7,9 +7,10 @@ import About from "./components/about"
 import Contact from "./components/contact";
 import Rules from "./components/rules";
 import navBar from "./components/navBar";
+import Chatbot from './components/Chatbot/Chatbot';
 function App() {
   return (
-    <div>
+    <>
       <navBar />
       <Router>
       <Routes>
@@ -23,7 +24,8 @@ function App() {
        
       </Routes>
     </Router>
-    </div>
+    <Chatbot />
+    </>
   );
 }
 
