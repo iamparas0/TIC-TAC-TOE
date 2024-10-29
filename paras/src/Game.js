@@ -152,12 +152,21 @@ const App = () => {
   // Render each cell
   const renderCell = (index) => {
     const value = board[index];
+    const cellStyle = {
+      backgroundColor: value === 'X' ? '#40E0D0' : value === 'O' ? '#FA8072' : 'white',
+      // color: value === 'O' ? 'blue' : 'black',
+    };
+  
     return (
-      <div className="cell" onClick={() => handleCellClick(index)}>
+      <div 
+        className="cell" 
+        onClick={() => handleCellClick(index)} 
+        style={cellStyle}
+      >
         {value}
       </div>
     );
-  };
+  };    
 
   // Game Mode selection
   const handleBackButton = () => {
