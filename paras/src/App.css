@@ -31,7 +31,8 @@ body {
   flex-grow: 1;
   text-align: center;
   position: relative;
-  left: 85px;
+  left: 0px;
+  top:15px;
   font-size: 28px; /* Increased font size */
   letter-spacing: 1px; /* Added letter spacing for readability */
 }
@@ -244,7 +245,12 @@ body {
 .player-input {
   margin: 10px;
 }
-
+.draw-message{
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: green;
+}
 .player-input input {
   padding: 5px;
   margin: 5px;
@@ -347,7 +353,7 @@ body {
 
 .footer {
   text-align: center;
-  padding: 20px;
+  height:10px;
   font-size: 14px;
   border-top: 1px solid #ccc;
   background-color: #f9f9f9;
@@ -525,7 +531,11 @@ body {
   color: white;
   animation: highlight 1.5s infinite alternate;
 }
-
+.draw-highlight{
+  background-color: limegreen;
+  color: white;
+  animation: highlight 1.5s infinite alternate;
+}
 @keyframes highlight {
   0% {
     background-color: limegreen;
