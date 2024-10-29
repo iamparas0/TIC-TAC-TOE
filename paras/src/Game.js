@@ -219,12 +219,21 @@ const App = () => {
         {board.map((cell, index) => renderCell(index))}
       </div>
 
+
+      {winner && (
+          <div className="winner-message">
+          <p>Player {winner} wins!</p>
+          <button className="replay-button" onClick={resetGame}>Replay</button>
+      </div>
+    )}
+
       <div className="winner-message">
   {winner && <p>Player {winner} wins!</p>}
   {draw && <p>It's a draw!</p>}
   <button onClick={resetGame}>Restart Game</button>
   <button onClick={resetApp}>Restart App</button> {/* New Reload Button */}
 </div>
+
 
     </div>
   );

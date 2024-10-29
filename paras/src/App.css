@@ -667,7 +667,19 @@ body {
   font-weight: bold;
   color: #d9534f;
 }
+.replay-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
+.replay-button:hover {
+  background-color: darkred;
+}
 
 
 .cell {
