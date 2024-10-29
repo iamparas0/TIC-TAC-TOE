@@ -25,7 +25,40 @@ const App = () => {
     newBoard[index] = currentPlayer;
     setBoard(newBoard);
     checkWinner(newBoard, currentPlayer);
+
     setCurrentPlayer(currentPlayer === "X" ? "O" : "X");
+
+
+    if(gameMode==='multiplayer')
+    {
+      setCurrentPlayer(currentPlayer === 'X'?'O':'X');
+    }
+
+    if(gameMode==='ai')
+    {
+      setTimeout(()=>{
+        aiTurn(newBoard);
+      },400);
+    }
+    
+  };
+
+  const aiTurn=(currentBoard) => {
+    const availableMoves=currentBoard
+      .map((cell, index) => (cell===null? index : null))
+      .filter((index) => index !== null);
+
+    if (availableMoves.length===0) 
+    {
+        return;
+    } 
+    const aiMove = availableMoves[Math.floor(Math.random()*availableMoves.length)];
+    const newBoard = [...currentBoard];
+    newBoard[aiMove]='O';
+    setBoard(newBoard);
+    checkWinner(newBoard,'O');
+    setCurrentPlayer('X');
+
   };
 
   // Check if there's a winner
@@ -45,6 +78,7 @@ const App = () => {
       if (board[a] === player && board[b] === player && board[c] === player) {
         setWinner(player);
         updateScoreAndHighestScore(player);
+        setDraw(false);
         return;
       }
     }
@@ -97,6 +131,16 @@ const App = () => {
       setIsDarkMode(systemDarkMode);
     }
   };
+  const resetApp = () => {
+    setBoard(initialBoard);
+    setCurrentPlayer('X');
+    setWinner(null);
+    setDraw(false);
+    setScorePlayerX(0);
+    setScorePlayerO(0);
+    setGameMode(null); // Reset game mode selection
+  };
+  
 
   // Setup initial theme
   useEffect(() => {
@@ -135,6 +179,7 @@ const App = () => {
             <h1 class="navbar-title">Tic Tac Toe</h1>
           </div>
           <div class="navbar">
+
             <div class="navbar-links">
               <Link to="/home" class="nav-link">
                 Home
@@ -154,6 +199,16 @@ const App = () => {
               <Link to="/Login" className="nav-link">
                 Log In
               </Link>
+
+              <div class="navbar-links">
+                <Link to="/" class="nav-link">Home</Link>
+                <Link to="/about" class="nav-link">About</Link>
+                <Link to="/rules" class="nav-link">Rules</Link>
+                <Link to="/contact" class="nav-link">Contact</Link>
+                <Link to="/signup" className='nav-link'>Sign Up</Link>
+                <Link to="/Login" className='nav-link'>Log In</Link>
+              </div>
+
             </div>
           </div>
 
@@ -232,12 +287,22 @@ const App = () => {
         {board.map((cell, index) => renderCell(index))}
       </div>
 
+
       {winner && (
-        <div className="winner-message">
+          <div className="winner-message">
           <p>Player {winner} wins!</p>
-          <button onClick={resetGame}>Restart</button>
-        </div>
-      )}
+          <button className="replay-button" onClick={resetGame}>Replay</button>
+      </div>
+    )}
+
+      <div className="winner-message">
+  {winner && <p>Player {winner} wins!</p>}
+  {draw && <p>It's a draw!</p>}
+  <button onClick={resetGame}>Restart Game</button>
+  <button onClick={resetApp}>Restart App</button> {/* New Reload Button */}
+</div>
+
+
     </div>
   );
 };
