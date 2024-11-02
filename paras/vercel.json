@@ -1,4 +1,14 @@
 {
+
+"rewrites":[
+{"source" : "./(.*)", "destination" : "/"}
+],
+"git": {
+"deploymentEnabled": {
+"main": false
+}
+}
+
   "version": 2,
   "builds": [
     {
@@ -17,4 +27,5 @@
       "main": false
     }
   }
+
 }
