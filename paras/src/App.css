@@ -307,13 +307,17 @@ body {
   font-weight: bold;
   color: #28a745;
 }
+
 /* Draw Message Container Styling */
+
+
 .draw-message {
   margin-top: 10px;
   font-size: 1.5rem;
   font-weight: bold;
   color: #ff5733;
 }
+
 
 /* Styling for "It's a draw!" text */
 .draw-message p {
@@ -345,6 +349,22 @@ body {
 /* Add subtle button scaling */
 .draw-message button:active {
   transform: scale(0.98); /* Slight scaling on click */
+
+.draw-message button {
+  margin: 10px;
+  padding: 8px 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.draw-message button:hover {
+  background-color: #1976D2;
+
 }
 
 /* Result Board */

@@ -345,6 +345,14 @@ const App = () => {
         </div>
       )}
 
+      {draw && !winner && (
+        <div className="draw-message">
+          <p>It's a draw!</p>
+          <button onClick={resetGame}>Restart</button>
+        </div>
+      )}
+
+
       {/* Game History Section */}
       {gameMode === 'multiplayer' && (
         <div className="game-history">
@@ -363,6 +371,7 @@ const App = () => {
   <button onClick={resetGame}>Restart Game</button>
   <button onClick={resetApp}>Restart App</button> {/* New Reload Button */}
 </div>
+
 
 
 
