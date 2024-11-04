@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="bar.css">
     <meta
       name="description"
       content="Web site created using create-react-app"
@@ -94,8 +95,40 @@
     <title>TIC TAC TOE</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    
+    <div class="container">
+        <header>
+          
+          <div class="logo">
+            <img id="logo1" src="img.png">
+            TIC TAC TOE
+          </div>
+          <nav id="navbar">
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Rules</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Sign Up</a></li>
+              <li><a href="#">Log In</a></li>
+            </ul>
+          </nav>
+          <div id="margin">
+            <button id="theme1-toggle" aria-label="Toggle Theme">💻</button>
+            <button id="theme2-toggle" aria-label="Toggle Theme">☀️</button>
+            <button id="theme3-toggle" aria-label="Toggle Theme">🌙</button>
+          </div>
+        </header>
+      
+        <main>
+          <section class="game-mode">
+            <h1>Choose Game Mode</h1>
+            <button class="multiplayer-btn">Multiplayer</button>
+            <button class="ai-btn">Play against AI</button>
+          </section>
+        </main>
+      </div>
+ 
 
       <div class="follow-us">
           <a href="mailto:pearsparas@gmail.com" target="_blank">
