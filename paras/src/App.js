@@ -103,10 +103,13 @@ const Game = () => {
           <li>If all cells are filled and no player has three marks in a row, the game is a draw.</li>
         </ul>
       </div>
-      <footer className="footer">
-        <p>&copy; 2023 TIC TAC TOE. All rights reserved.</p>
-      </footer>
-    </div>
+
+      <Sparkle mousePosition={mousePosition} />
+
+
+     <footer className="footer">
+        <p>&copy; 2024 TIC TAC TOE. Crafted with passion by Paras Vishwakarma. All rights reserved.</p>
+
 
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
