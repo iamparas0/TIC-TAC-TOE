@@ -298,11 +298,15 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Game from "./Game"
 import Signup from "./Signup"
 import Login from "./Login"
+
+import Contact from "./Contact";
+
 import About from "./components/about"
 import Contact from "./components/contact";
 import Rules from "./components/rules";
 import navBar from "./components/navBar";
 import Chatbot from './components/Chatbot/Chatbot';
+
 function App() {
   return (
     <>
@@ -311,9 +315,15 @@ function App() {
       <Routes>
         <Route path="/" element={<Game/>} />
         <Route path="/signup" element={<Signup/>} />
+
+        <Route path="/login" element={<Login/>} />
+        <Route path="/contact" element={<Contact/>}/>
+
+
         <Route path="/About" element={<About/>} />
         <Route path="/Contact" element={<Contact/>} />
         <Route path="/Rules" element={<Rules/>} />
+
         
         <Route path="/login" element={<Login/>} />
        
