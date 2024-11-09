@@ -1,0 +1,31 @@
+.rules-page {
+    padding: 20px;
+    margin: auto;
+    max-width: 800px;
+    font-family: 'Georgia', serif;
+    background-color: #fff;
+    color: #333;
+  }
+  
+  .rules-page.dark {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+  }
+  
+  h1 {
+    margin-bottom: 15px;
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  ul {
+    list-style-type: square;
+    margin: 20px;
+    font-size: 1.2rem;
+    line-height: 1.8;
+  }
+  
+  ul li {
+    margin-bottom: 10px;
+  }
+  
