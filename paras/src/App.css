@@ -307,13 +307,49 @@ body {
   font-weight: bold;
   color: #28a745;
 }
-/* Draw message */
+
+/* Draw Message Container Styling */
+
+
 .draw-message {
   margin-top: 10px;
   font-size: 1.5rem;
   font-weight: bold;
   color: #ff5733;
 }
+
+
+/* Styling for "It's a draw!" text */
+.draw-message p {
+  margin-top: 30px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #28a745;
+}
+
+/* Restart Button Styling */
+.draw-message button {
+  background: linear-gradient(45deg, #42A5F5, #1E88E5); /* Blue gradient for the restart button */
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth hover effect */
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* Hover effect for the button */
+.draw-message button:hover {
+  transform: translateY(-3px); /* Slight upward movement */
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+}
+
+/* Add subtle button scaling */
+.draw-message button:active {
+  transform: scale(0.98); /* Slight scaling on click */
+
 .draw-message button {
   margin: 10px;
   padding: 8px 15px;
@@ -328,6 +364,7 @@ body {
 
 .draw-message button:hover {
   background-color: #1976D2;
+
 }
 
 /* Result Board */
