@@ -12,6 +12,7 @@ import Sparkle from "./Sparkle"; // If Sparkle is not used, you can remove this 
 import { Link } from "react-router-dom";
 
 const initialBoard = Array(9).fill(null);
+import winSoundFile from './win-sound1.wav'; 
 
 const App = () => {
   const [board, setBoard] = useState(initialBoard);
@@ -25,10 +26,10 @@ const App = () => {
   const [highestScorePlayerX, setHighestScorePlayerX] = useState(0);
   const [highestScorePlayerO, setHighestScorePlayerO] = useState(0);
   const [gameMode, setGameMode] = useState(null);
-
-  const [gameHistory, setGameHistory] = useState([]); // Added game history state
-
-
+  const [gameHistory, setGameHistory] = useState([]);
+  
+  const winSound = new Audio(winSoundFile);
+  
   // Handle click on a cell
   const handleCellClick = (index) => {
     if (board[index] || winner || draw) return;
@@ -90,13 +91,16 @@ const App = () => {
       if (board[a] === player && board[b] === player && board[c] === player) {
         setWinner(player);
         updateScoreAndHighestScore(player);
+        try {
+          winSound.play();
+        } catch (error) {
+          console.error("Failed to play win sound:", error);
+        }
         setDraw(false);
         return;
       }
     }
-    if (board.every((cell) => cell !== null) && !winner) {
-      setDraw(true);
-    }
+    if (board.every((cell) => cell !== null) && !winner) setDraw(true);
   };
 
   // Update score and highest score
