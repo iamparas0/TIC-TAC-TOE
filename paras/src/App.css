@@ -31,7 +31,8 @@ body {
   flex-grow: 1;
   text-align: center;
   position: relative;
-  left: 85px;
+  left: 0px;
+  top:15px;
   font-size: 28px; /* Increased font size */
   letter-spacing: 1px; /* Added letter spacing for readability */
 }
@@ -244,7 +245,12 @@ body {
 .player-input {
   margin: 10px;
 }
-
+.draw-message{
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: green;
+}
 .player-input input {
   padding: 5px;
   margin: 5px;
@@ -302,6 +308,65 @@ body {
   color: #28a745;
 }
 
+/* Draw Message Container Styling */
+
+
+.draw-message {
+  margin-top: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff5733;
+}
+
+
+/* Styling for "It's a draw!" text */
+.draw-message p {
+  margin-top: 30px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #28a745;
+}
+
+/* Restart Button Styling */
+.draw-message button {
+  background: linear-gradient(45deg, #42A5F5, #1E88E5); /* Blue gradient for the restart button */
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth hover effect */
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* Hover effect for the button */
+.draw-message button:hover {
+  transform: translateY(-3px); /* Slight upward movement */
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+}
+
+/* Add subtle button scaling */
+.draw-message button:active {
+  transform: scale(0.98); /* Slight scaling on click */
+
+.draw-message button {
+  margin: 10px;
+  padding: 8px 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.draw-message button:hover {
+  background-color: #1976D2;
+
+}
+
 /* Result Board */
 .result-board {
   margin: 20px 0;
@@ -347,7 +412,7 @@ body {
 
 .footer {
   text-align: center;
-  padding: 20px;
+  height:10px;
   font-size: 14px;
   border-top: 1px solid #ccc;
   background-color: #f9f9f9;
@@ -525,7 +590,11 @@ body {
   color: white;
   animation: highlight 1.5s infinite alternate;
 }
-
+.draw-highlight{
+  background-color: limegreen;
+  color: white;
+  animation: highlight 1.5s infinite alternate;
+}
 @keyframes highlight {
   0% {
     background-color: limegreen;
@@ -667,7 +736,19 @@ body {
   font-weight: bold;
   color: #d9534f;
 }
+.replay-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
+.replay-button:hover {
+  background-color: darkred;
+}
 
 
 .cell {
