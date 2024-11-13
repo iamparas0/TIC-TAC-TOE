@@ -1,0 +1,91 @@
+.contact-page {
+    padding: 30px;
+    margin: auto;
+    max-width: 600px; /* Adjusted for a more compact layout */
+    font-family: 'Arial', sans-serif; /* Changed to a more modern font */
+    background-color: #f7f7f7; /* Light gray background for a softer look */
+    color: #333;
+    text-align: center;
+    border-radius: 8px; /* Rounded corners for the container */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for dark mode */
+  }
+  
+  .contact-page.dark {
+    background-color: #2c2c2c; /* Dark background for dark mode */
+    color: #f0f0f0; /* Light text for dark mode */
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+    font-size: 2.5rem; /* Larger font size for the heading */
+    font-weight: bold;
+    text-transform: uppercase; /* Uppercase heading for emphasis */
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Increased spacing for better readability */
+  }
+  
+  label {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.1rem;
+    font-weight: 500; /* Slightly bolder text for labels */
+  }
+  
+  input, textarea {
+    margin-top: 5px;
+    padding: 12px; /* Increased padding for comfort */
+    width: 100%; /* Full width for better responsiveness */
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 5px; /* More rounded corners */
+    font-size: 1rem;
+    transition: border-color 0.3s; /* Smooth border color transition */
+  }
+  
+  input:focus, textarea:focus {
+    border-color: #007bff; /* Blue border on focus */
+    outline: none; /* Remove default outline */
+  }
+  
+  textarea {
+    resize: none;
+    height: 120px; /* Slightly larger height for the textarea */
+  }
+  
+  button {
+    padding: 12px 25px; /* Increased padding for buttons */
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+    border: none;
+    border-radius: 5px; /* Rounded corners for buttons */
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Added transform for hover effect */
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight upward movement on hover */
+  }
+  
+  button:active {
+    transform: translateY(0); /* Reset movement on click */
+  }
+  
+  /* Media Query for Responsiveness */
+  @media (max-width: 600px) {
+    .contact-page {
+      padding: 20px; /* Reduced padding for smaller screens */
+    }
+  
+    h1 {
+      font-size: 2rem; /* Smaller heading size on mobile */
+    }
+  }
+  

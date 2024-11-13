@@ -2,20 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+
     <link rel="icon" href="Favicon.webp" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <meta
       name="description"
       content="Web site created using create-react-app"
     />
     <style>
       body {
-          font-family: 'Poppins', sans-serif;
+          /* font-family: 'Poppins', sans-serif; */
           display: flex;
           flex-direction: column;
           min-height: 100vh;
           margin: 0;
+          font-family: "Caveat", cursive; 
       }
 
       #root {
@@ -108,24 +114,116 @@
           </a>
       </div>
 
+      <div class="gtranslate_wrapper"></div>
+
+      <script>
+    
+      window.gtranslateSettings = {
+        "default_language":"en",
+        "detect_browser_language":true,
+        "wrapper_selector":".gtranslate_wrapper"
+      }
+    
+      </script>
+    
+      <script 
+        src="https://cdn.gtranslate.net/widgets/latest/float.js"
+        defer
+      ></script>
+    
 
 
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-      -->
+
+
+      
+      <style>
+      .voting-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: 'Arial', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 2px solid #3498db;
+}
+
+.voting-button:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.voting-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button-container {
+    padding: 20px;
+    text-align: center;
+}
+
+      </style>
+
 
   <footer>
       <div class="footer-container">
-        <p>&copy; 2024 Tic-Tac-Toe Game</p>
+        <div class="button-container">
+            <a href="voting_system.html" class="voting-button">Voting System</a>
+        </div>
+      
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>About Tic-Tac-Toe 2024</h3>
+                    <p>Welcome to the best online Tic-Tac-Toe experience! Play against friends, challenge the AI, and enjoy the fun!</p>
+                </div>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+                <div class="footer-section links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#how-to-play">About</a></li>
+                        <li><a href="#leaderboard">Rules</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section legal">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#privacy-policy">Privacy Policy</a></li>
+                        <li><a href="#terms-conditions">Terms & Conditions</a></li>
+                        <li><a href="#cookie-policy">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><a href="mailto:support@tictactoe2024.com">support@tictactoe2024.com</a></li>
+                        <li><a href="tel:+1234567890">+1 234 567 890</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Tic-Tac-Toe Game. All rights reserved.</p>
+            </div>
+        
+        
         <ul class="social-links">
-          <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-          <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-          <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/iamparas0/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+          <li><a href="https://x.com/iamparas0" target="_blank"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="https://www.instagram.com/iamparas.0/" target="_blank"><i class="fab fa-instagram"></i></a></li>
         </ul>
-        <p>Developed by SaanyaGarg</p>
       </div>
   </footer>
+ 
 </body>
 
 </html>
