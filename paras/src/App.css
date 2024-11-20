@@ -9,7 +9,7 @@ body {
 
 .app {
   text-align: center;
-  background-color: white;
+  background-color:  #f2bfe3;
   color: black;
   min-height: 100vh;
   font-family: Arial, sans-serif;
@@ -637,7 +637,7 @@ body {
   background-color: #4CAF50;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 12px;
   transition: background-color 0.3s;
 }
 
