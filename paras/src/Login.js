@@ -94,6 +94,9 @@ const Login = () => {
         </div>
 
         <button type="submit" className="login-btn">Log In</button>
+        <button id="google-login" ><a href="https://accounts.google.com/v3/signin/identifier?authuser=0&continue=https%3A%2F%2Fmyaccount.google.com%2F%3Futm_source%3Dsign_in_no_continue%26pli%3D1%26nlr%3D1&ec=GAlAwAE&hl=en_GB&service=accountsettings&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S1211316509%3A1729920929255114&ddm=0">Login with Google</a></button>
+        <button id="facbook-login"><a href="https://www.facebook.com/login/">Login with facebook</a></button>
+        <button id="x-login"><a href="https://x.com/i/flow/login">Login with X</a></button>
       </form>
       <p className="redirect-text">
         Don't have an account?{" "}
