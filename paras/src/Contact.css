@@ -70,6 +70,7 @@
   
   .form-group2 input:focus {
     outline: none;
+    outline: dotted;
     border-color: #007bff;
   }
   .form-group2 label {
