@@ -2,14 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import './App.css'; 
-import Sparkle from './Sparkle'; // If Sparkle is not used, you can remove this import.
+import Sparkle from './Sparkle';
 import { Link } from 'react-router-dom';
-
-
-import React, { useState, useEffect } from "react";
-import "./App.css";
-import Sparkle from "./Sparkle"; // If Sparkle is not used, you can remove this import.
-import { Link } from "react-router-dom";
 
 const initialBoard = Array(9).fill(null);
 
@@ -38,12 +32,8 @@ const App = () => {
     setBoard(newBoard);
     checkWinner(newBoard, currentPlayer);
 
-    setCurrentPlayer(currentPlayer === "X" ? "O" : "X");
-
-
-    if(gameMode==='multiplayer')
-    {
-      setCurrentPlayer(currentPlayer === 'X'?'O':'X');
+    if(gameMode !== 'multiplayer') {
+      setCurrentPlayer(currentPlayer === "X" ? "O" : "X");
     }
 
     if(gameMode==='ai')
@@ -325,7 +315,7 @@ const App = () => {
               : ""
           }
         >
-          {draw === false ? `Y Wins: ${scorePlayerX}` : ""}
+          {draw === false ? `O Wins: ${scorePlayerO}` : ""}
         </div>
       </div>
       <button className="back-button" onClick={handleBackButton}>
@@ -363,20 +353,7 @@ const App = () => {
 
           <button className="replay-button" onClick={resetGame}>Replay</button>
       </div>
-    )}
-
-      <div className="winner-message">
-  {winner && <p>Player {winner} wins!</p>}
-  {draw && <p>It's a draw!</p>}
-  <button onClick={resetGame}>Restart Game</button>
-  <button onClick={resetApp}>Restart App</button> {/* New Reload Button */}
-</div>
-
-
-
-
-    </div>
-  );
+    );
 };
 
 export default App;
